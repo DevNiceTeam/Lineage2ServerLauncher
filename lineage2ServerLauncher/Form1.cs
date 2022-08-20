@@ -15,24 +15,31 @@ namespace lineage2ServerLauncher
 
     public partial class Form1 : Form
     {
+        LangChanger lc;
         public Form1()
         {
-            InitializeComponent();
+            lc = new LangChanger(this);
+            InitializeComponent();           
         }
 
         private void button1_Click(object sender, EventArgs e)
         { 
-            
-
-            
-
+           
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {  
+            lc.isRuLanguage();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
-            LangChanger lc = new LangChanger(this);
-            lc.isRuLang();
-           
+            lc.isEnLanguage();            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {            
+            lc.isRuLanguage();
         }
     }
 }
