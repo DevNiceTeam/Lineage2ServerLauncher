@@ -1,9 +1,10 @@
 ﻿namespace lineage2ServerLauncher
 {
-    internal class MysqlState
+    class MysqlState
     {
-        static bool isFirstRun;
-        static bool isLoading;
-        static bool isLoaded;        
+        public bool isFirstRun;
+        public bool isLoading;
+        public bool isLoaded;
+        public bool isAlreadyLaunched;
     }
 }

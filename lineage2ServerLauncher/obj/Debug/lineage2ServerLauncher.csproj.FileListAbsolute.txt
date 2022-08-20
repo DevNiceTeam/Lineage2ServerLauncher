@@ -1,0 +1,11 @@
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\lineage2ServerLauncher.exe.config
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\lineage2ServerLauncher.exe
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\lineage2ServerLauncher.pdb
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.csproj.AssemblyReference.cache
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.csproj.SuggestedBindingRedirects.cache
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.Form1.resources
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.Properties.Resources.resources
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.csproj.GenerateResource.cache
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.csproj.CoreCompileInputs.cache
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.exe
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.pdb

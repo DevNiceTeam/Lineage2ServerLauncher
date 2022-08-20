@@ -14,56 +14,91 @@ namespace lineage2ServerLauncher
 {
     internal class MysqlConnect 
     {
-        void Connect()
-        {            
-            string[] path =
+        Form1 form;
+        MysqlState ms;
+
+        public MysqlConnect(Form1 form)
+        {
+            this.form = form;
+            ms = new MysqlState();
+        }
+
+        public async void Connect()
+        {
+            List<String> path = new List<String>
             {
-                @"mariadb\bin\mysqld.exe",
-                @"mariadb-install-db.exe"
+                @"mariadb\bin\mariadb-install-db.exe",
+                @"mariadb\bin\mysqld.exe"                
             };           
             var mysqlCnf = @"mariadb\my.cnf";
+
+            var fullPath = Path.GetFullPath(@"mariadb\data");
+
+            if (Directory.Exists(fullPath))
+            {
+                ms.isAlreadyLaunched = true;
+                Console.WriteLine(fullPath + "Существует");
+                path.RemoveAt(0);
+            }
+            else
+            {
+                Console.WriteLine(fullPath + "Нету");                
+            }
 
             if (!File.Exists(mysqlCnf))
             {
                 var p = Path.GetFullPath("mariadb");
                 var fileText = "[mysqld]" + "\n" + "datadir=\"" + p + @"\data" + "\"";
                 createFile(mysqlCnf);
-                File.WriteAllText(mysqlCnf, fileText);
-
-            }
-            else
-            {
-
-            }
+                File.WriteAllText(mysqlCnf, fileText);                             
+            }            
 
             try
             {
-                for (int i = 0; i < path.Length; i++)
+                foreach (var process in Process.GetProcessesByName("mysqld"))
                 {
-                    Process.Start(new ProcessStartInfo
+                    process.Kill();
+                }               
+
+                foreach (var item in path)
+                {                    
+                    ms.isLoading = true;
+                    if (ms.isAlreadyLaunched)
                     {
-                        FileName = path[i],
-                        WindowStyle = ProcessWindowStyle.Hidden,
+                        await Task.Delay(4000);                        
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = item,
+                            WindowStyle = ProcessWindowStyle.Hidden
+                        });                        
+                    }
+                    else
+                    {
+                        await Task.Delay(4000);
+                        Process.Start(new ProcessStartInfo
+                        {
+                            FileName = item,
+                            WindowStyle = ProcessWindowStyle.Hidden
+                        });
+                    }
 
-
-
-                    });
-                }
-
-
+                    if (path.Count >= 2)
+                    {
+                        ms.isLoaded = true;
+                        //Console.WriteLine(ms.isLoaded);                        
+                    }
+                } 
             }
             catch (Exception)
             {
-
-                throw;
+                
             }
-        }
+        }        
 
         void createFile(string path)
         {
-            FileStream fs = new FileStream(path, FileMode.Create);
+            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             fs.Close();
-
         }
     }
 }

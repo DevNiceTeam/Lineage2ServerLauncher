@@ -16,15 +16,17 @@ namespace lineage2ServerLauncher
     public partial class Form1 : Form
     {
         LangChanger lc;
+        MysqlConnect mc;
         public Form1()
         {
             lc = new LangChanger(this);
+            mc = new MysqlConnect(this);
             InitializeComponent();           
         }
 
         private void button1_Click(object sender, EventArgs e)
         { 
-           
+           mc.Connect();
         }
 
         private void button3_Click(object sender, EventArgs e)
