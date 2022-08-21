@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,9 +35,9 @@ namespace lineage2ServerLauncher
 
             var fullPath = Path.GetFullPath(@"mariadb\data");
 
-            if (Directory.Exists(fullPath))
+            if (Directory.Exists(fullPath)) //Проверяем наличие дириктории Data
             {
-                ms.isAlreadyLaunched = true;
+                ms.isReadyToLaunch = true;
                 Console.WriteLine(fullPath + "Существует");
                 path.RemoveAt(0);
             }
@@ -45,7 +46,7 @@ namespace lineage2ServerLauncher
                 Console.WriteLine(fullPath + "Нету");                
             }
 
-            if (!File.Exists(mysqlCnf))
+            if (!File.Exists(mysqlCnf)) //Проверяем наличие конфига
             {
                 var p = Path.GetFullPath("mariadb");
                 var fileText = "[mysqld]" + "\n" + "datadir=\"" + p + @"\data" + "\"";
@@ -63,7 +64,7 @@ namespace lineage2ServerLauncher
                 foreach (var item in path)
                 {                    
                     ms.isLoading = true;
-                    if (ms.isAlreadyLaunched)
+                    if (ms.isReadyToLaunch)
                     {
                         await Task.Delay(4000);                        
                         Process.Start(new ProcessStartInfo
@@ -82,8 +83,9 @@ namespace lineage2ServerLauncher
                         });
                     }
 
-                    if (path.Count >= 2)
+                    if (path.Count == 2)
                     {
+                        ms.isLoading = false;
                         ms.isLoaded = true;
                         //Console.WriteLine(ms.isLoaded);                        
                     }
@@ -93,12 +95,52 @@ namespace lineage2ServerLauncher
             {
                 
             }
-        }        
+        }    
+        
+        public void stopMysql()
+        {
+            if (ms.isLoaded)
+            {
+                foreach (var process in Process.GetProcessesByName("mysqld"))
+                {
+                    process.Kill();                    
+                }
+            }
+        }
+
+        public void resetMysql()
+        {
+            var mysqlCnf = @"mariadb\my.cnf";
+            var fullPath = Path.GetFullPath(@"mariadb\data");
+
+            File.Delete(mysqlCnf);
+            Directory.Delete(fullPath, true);
+            ms.isLoading = false;
+            ms.isLoaded = false;
+            ms.isFirstRun = false;
+            ms.isReadyToLaunch = false;
+        }
 
         void createFile(string path)
         {
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             fs.Close();
+        }
+
+        public void checkState()
+        {
+            if(ms.isLoading)
+            {
+
+            }
+            else if(ms.isLoaded)
+            {
+
+            }
+            else if (ms.isReadyToLaunch)
+            {
+
+            }
         }
     }
 }

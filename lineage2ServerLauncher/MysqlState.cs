@@ -2,9 +2,9 @@
 {
     class MysqlState
     {
-        public bool isFirstRun;
-        public bool isLoading;
-        public bool isLoaded;
-        public bool isAlreadyLaunched;
+        public bool isFirstRun; //Первый запуск
+        public bool isLoading;  //Бд в процессе включения
+        public bool isLoaded; //Бд включено и уже работает  
+        public bool isReadyToLaunch; //Бд готова к запуску
     }
 }
