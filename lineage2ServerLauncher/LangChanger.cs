@@ -31,8 +31,8 @@ namespace lineage2ServerLauncher
             isRuLang = false;
             isEnLang = true;
             change("button3", "Russian");
-        }      
-        
+        }
+
         void change(string controlName, string text)
         {
             form.Controls[controlName].Text = text;

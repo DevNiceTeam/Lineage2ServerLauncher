@@ -17,6 +17,7 @@ namespace lineage2ServerLauncher
     {
         Form1 form;
         MysqlState ms;
+        bool dbStarted;
 
         public MysqlConnect(Form1 form)
         {
@@ -26,10 +27,15 @@ namespace lineage2ServerLauncher
 
         public async void Connect()
         {
+            Console.WriteLine("есть2");
+            dbStarted = true;
+            ms.isDisabled = false;
+            Thread thr = new Thread(checkState);
+            thr.Start();
             List<String> path = new List<String>
             {
                 @"mariadb\bin\mariadb-install-db.exe",
-                @"mariadb\bin\mysqld.exe"                
+                @"mariadb\bin\mysqld.exe"
             };           
             var mysqlCnf = @"mariadb\my.cnf";
 
@@ -83,10 +89,11 @@ namespace lineage2ServerLauncher
                         });
                     }
 
-                    if (path.Count == 2)
-                    {
+                    if (path.Count == 1)
+                    {                        
                         ms.isLoading = false;
                         ms.isLoaded = true;
+                        Console.WriteLine(path[1]);
                         //Console.WriteLine(ms.isLoaded);                        
                     }
                 } 
@@ -98,9 +105,13 @@ namespace lineage2ServerLauncher
         }    
         
         public void stopMysql()
-        {
+        {           
             if (ms.isLoaded)
             {
+                ms.isDisabled = true;
+                ms.isLoaded = false;
+                checkState();
+                dbStarted = false;
                 foreach (var process in Process.GetProcessesByName("mysqld"))
                 {
                     process.Kill();                    
@@ -110,6 +121,8 @@ namespace lineage2ServerLauncher
 
         public void resetMysql()
         {
+            ms.isDisabled = true;
+            dbStarted = false;
             var mysqlCnf = @"mariadb\my.cnf";
             var fullPath = Path.GetFullPath(@"mariadb\data");
 
@@ -127,20 +140,30 @@ namespace lineage2ServerLauncher
             fs.Close();
         }
 
-        public void checkState()
+        public async void checkState()
         {
-            if(ms.isLoading)
+            Console.WriteLine("есть1");
+            //form.label1.Text = "Устанавливается...";
+            Console.WriteLine(dbStarted);
+            for (int i = 0; dbStarted; i++)
             {
-
-            }
-            else if(ms.isLoaded)
-            {
-
-            }
-            else if (ms.isReadyToLaunch)
-            {
-
-            }
+                if (ms.isLoading)
+                {
+                    form.label1.Text = "Запускается...";
+                }
+                if (ms.isLoaded)
+                {
+                    form.label1.Text = "Запущено";
+                }               
+                if (ms.isDisabled)
+                {
+                    form.label1.Text = "Выключено";
+                }
+                await Task.Delay(3000);
+                Console.WriteLine("isLoading = " + ms.isLoading +
+                    " isLoaded = " + ms.isLoaded + 
+                    " isDisabled = " + ms.isDisabled);
+            }            
         }
     }
 }

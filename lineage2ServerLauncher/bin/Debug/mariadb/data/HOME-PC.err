@@ -1,137 +1,592 @@
-2022-08-20 22:26:49 0 [Note] InnoDB: The first data file './ibdata1' did not exist. A new tablespace will be created!
-2022-08-20 22:26:49 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:26:49 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:26:49 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:26:49 0 [Note] InnoDB: Initializing buffer pool, total size = 20.000MiB, chunk size = 1.000MiB
-2022-08-20 22:26:49 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:26:49 0 [Note] InnoDB: Setting file './ibdata1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:26:49 0 [Note] InnoDB: File './ibdata1' size is now 12.000MiB.
-2022-08-20 22:26:49 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:26:49 0 [Note] InnoDB: Doublewrite buffer not found: creating new
-2022-08-20 22:26:49 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:26:49 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:26:49 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:26:50 0 [Note] InnoDB: log sequence number 0; transaction id 3
-2022-08-20 22:26:50 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:40:25 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:40:25 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:40:25 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:40:25 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
-2022-08-20 22:40:25 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:40:25 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:40:25 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:40:25 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:40:25 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:40:25 0 [Note] InnoDB: log sequence number 45505; transaction id 14
-2022-08-20 22:40:25 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:40:25 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
-2022-08-20 22:40:25 0 [Note] Server socket created on IP: '::'.
-2022-08-20 22:40:25 0 [Note] Server socket created on IP: '0.0.0.0'.
-2022-08-20 22:40:25 0 [Note] InnoDB: Buffer pool(s) load completed at 220820 22:40:25
-2022-08-20 22:40:25 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+2022-08-21 21:44:22 0 [Note] InnoDB: The first data file './ibdata1' did not exist. A new tablespace will be created!
+2022-08-21 21:44:22 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-21 21:44:22 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-21 21:44:22 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-21 21:44:22 0 [Note] InnoDB: Initializing buffer pool, total size = 20.000MiB, chunk size = 1.000MiB
+2022-08-21 21:44:22 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-21 21:44:22 0 [Note] InnoDB: Setting file './ibdata1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-21 21:44:22 0 [Note] InnoDB: File './ibdata1' size is now 12.000MiB.
+2022-08-21 21:44:22 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-21 21:44:23 0 [Note] InnoDB: Doublewrite buffer not found: creating new
+2022-08-21 21:44:23 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-21 21:44:23 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-21 21:44:23 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-21 21:44:23 0 [Note] InnoDB: log sequence number 0; transaction id 3
+2022-08-21 21:44:23 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-21 21:48:26 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-21 21:48:26 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-21 21:48:26 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-21 21:48:26 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-21 21:48:26 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-21 21:48:26 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-21 21:48:26 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-21 21:48:26 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-21 21:48:26 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-21 21:48:26 0 [Note] InnoDB: log sequence number 45505; transaction id 14
+2022-08-21 21:48:26 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-21 21:48:26 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-21 21:48:26 0 [Note] Server socket created on IP: '::'.
+2022-08-21 21:48:26 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-21 21:48:26 0 [Note] InnoDB: Buffer pool(s) load completed at 220821 21:48:26
+2022-08-21 21:48:26 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
 Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
-2022-08-20 22:49:19 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:49:19 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:49:19 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:49:19 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
-2022-08-20 22:49:19 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:49:19 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:49:19 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
-2022-08-20 22:49:19 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
-2022-08-20 22:49:19 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:49:19 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
-2022-08-20 22:49:19 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:49:19 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:49:19 0 [Note] InnoDB: log sequence number 46655; transaction id 14
-2022-08-20 22:49:19 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:49:19 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
-2022-08-20 22:49:19 0 [Note] Server socket created on IP: '::'.
-2022-08-20 22:49:19 0 [Note] Server socket created on IP: '0.0.0.0'.
-2022-08-20 22:49:19 0 [Note] InnoDB: Buffer pool(s) load completed at 220820 22:49:19
-2022-08-20 22:49:19 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+2022-08-21 22:11:24 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-21 22:11:24 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-21 22:11:24 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-21 22:11:24 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-21 22:11:24 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-21 22:11:24 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-21 22:11:25 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-21 22:11:25 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-21 22:11:25 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-21 22:11:25 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-21 22:11:25 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-21 22:11:25 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-21 22:11:25 0 [Note] InnoDB: log sequence number 46823; transaction id 14
+2022-08-21 22:11:25 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-21 22:11:25 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-21 22:11:25 0 [Note] Server socket created on IP: '::'.
+2022-08-21 22:11:25 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-21 22:11:25 0 [Note] InnoDB: Buffer pool(s) load completed at 220821 22:11:25
+2022-08-21 22:11:25 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
 Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
-2022-08-20 22:49:26 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
-2022-08-20 22:52:59 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:52:59 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:52:59 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:52:59 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
-2022-08-20 22:52:59 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:52:59 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:52:59 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
-2022-08-20 22:52:59 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
-2022-08-20 22:52:59 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:52:59 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
-2022-08-20 22:52:59 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:52:59 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:52:59 0 [Note] InnoDB: log sequence number 46739; transaction id 14
-2022-08-20 22:52:59 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:52:59 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
-2022-08-20 22:52:59 0 [Note] Server socket created on IP: '::'.
-2022-08-20 22:52:59 0 [Note] Server socket created on IP: '0.0.0.0'.
-2022-08-20 22:52:59 0 [Note] InnoDB: Buffer pool(s) load completed at 220820 22:52:59
-2022-08-20 22:52:59 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+2022-08-22  0:21:42 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  0:21:42 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  0:21:42 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  0:21:42 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  0:21:42 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  0:21:42 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  0:21:42 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  0:21:42 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  0:21:42 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  0:21:42 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  0:21:42 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  0:21:42 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  0:21:42 0 [Note] InnoDB: log sequence number 46907; transaction id 14
+2022-08-22  0:21:42 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  0:21:42 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  0:21:42 0 [Note] Server socket created on IP: '::'.
+2022-08-22  0:21:42 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  0:21:42 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  0:21:42
+2022-08-22  0:21:42 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
 Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
-2022-08-20 22:53:05 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
-2022-08-20 22:54:58 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:54:58 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:54:58 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:54:58 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
-2022-08-20 22:54:58 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:54:58 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:54:58 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
-2022-08-20 22:54:58 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
-2022-08-20 22:54:58 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:54:58 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
-2022-08-20 22:54:58 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:54:58 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:54:58 0 [Note] InnoDB: log sequence number 46823; transaction id 14
-2022-08-20 22:54:58 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:54:58 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
-2022-08-20 22:54:58 0 [Note] Server socket created on IP: '::'.
-2022-08-20 22:54:58 0 [Note] Server socket created on IP: '0.0.0.0'.
-2022-08-20 22:54:58 0 [Note] InnoDB: Buffer pool(s) load completed at 220820 22:54:58
-2022-08-20 22:54:58 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+2022-08-22  0:24:12 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  0:24:12 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  0:24:12 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  0:24:12 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  0:24:12 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  0:24:12 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  0:24:12 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  0:24:12 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  0:24:12 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  0:24:12 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  0:24:12 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  0:24:12 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  0:24:12 0 [Note] InnoDB: log sequence number 46991; transaction id 14
+2022-08-22  0:24:12 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  0:24:12 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  0:24:12 0 [Note] Server socket created on IP: '::'.
+2022-08-22  0:24:12 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  0:24:12 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  0:24:12
+2022-08-22  0:24:12 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
 Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
-2022-08-20 22:55:02 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
-2022-08-20 22:56:09 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:56:09 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:56:09 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:56:09 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
-2022-08-20 22:56:09 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:56:09 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:56:09 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
-2022-08-20 22:56:09 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
-2022-08-20 22:56:09 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:56:09 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
-2022-08-20 22:56:09 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:56:09 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:56:09 0 [Note] InnoDB: log sequence number 46907; transaction id 14
-2022-08-20 22:56:09 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:56:09 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
-2022-08-20 22:56:09 0 [Note] Server socket created on IP: '::'.
-2022-08-20 22:56:09 0 [Note] Server socket created on IP: '0.0.0.0'.
-2022-08-20 22:56:09 0 [Note] InnoDB: Buffer pool(s) load completed at 220820 22:56:09
-2022-08-20 22:56:09 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+2022-08-22  1:07:42 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:07:42 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:07:42 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:07:42 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:07:42 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:07:42 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:07:42 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:07:42 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:07:42 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:07:42 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:07:42 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:07:42 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:07:42 0 [Note] InnoDB: log sequence number 47075; transaction id 14
+2022-08-22  1:07:42 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:07:42 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:07:42 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:07:42 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:07:42 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:07:42
+2022-08-22  1:07:42 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
 Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
-2022-08-20 22:56:15 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
-2022-08-20 22:56:26 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
-2022-08-20 22:56:26 0 [Note] InnoDB: Number of transaction pools: 1
-2022-08-20 22:56:26 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2022-08-20 22:56:26 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
-2022-08-20 22:56:26 0 [Note] InnoDB: Completed initialization of buffer pool
-2022-08-20 22:56:26 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2022-08-20 22:56:26 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
-2022-08-20 22:56:26 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
-2022-08-20 22:56:26 0 [Note] InnoDB: 128 rollback segments are active.
-2022-08-20 22:56:26 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
-2022-08-20 22:56:26 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2022-08-20 22:56:26 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2022-08-20 22:56:26 0 [Note] InnoDB: log sequence number 46991; transaction id 14
-2022-08-20 22:56:26 0 [Note] Plugin 'FEEDBACK' is disabled.
-2022-08-20 22:56:26 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
-2022-08-20 22:56:26 0 [Note] Server socket created on IP: '::'.
-2022-08-20 22:56:26 0 [Note] Server socket created on IP: '0.0.0.0'.
-2022-08-20 22:56:26 0 [Note] InnoDB: Buffer pool(s) load completed at 220820 22:56:26
-2022-08-20 22:56:27 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+2022-08-22  1:08:11 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:08:11 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:08:11 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:08:11 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:08:11 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:08:11 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:08:11 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:08:11 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:08:11 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:08:11 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:08:11 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:08:11 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:08:11 0 [Note] InnoDB: log sequence number 47159; transaction id 14
+2022-08-22  1:08:11 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:08:11 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:08:11 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:08:11 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:08:11 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:08:11
+2022-08-22  1:08:11 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
 Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
-2022-08-20 22:56:27 0 [Note] console_event_handler: received CTRL_CLOSE_EVENT event, terminating
+2022-08-22  1:10:14 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:10:14 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:10:14 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:10:14 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:10:14 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:10:14 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:10:14 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:10:14 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:10:14 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:10:14 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:10:14 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:10:14 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:10:14 0 [Note] InnoDB: log sequence number 47243; transaction id 14
+2022-08-22  1:10:14 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:10:14 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:10:14 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:10:14 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:10:14 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:10:14
+2022-08-22  1:10:14 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:13:52 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:13:52 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:13:52 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:13:52 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:13:52 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:13:52 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:13:52 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:13:52 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:13:52 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:13:52 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:13:52 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:13:52 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:13:52 0 [Note] InnoDB: log sequence number 47327; transaction id 14
+2022-08-22  1:13:52 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:13:52 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:13:52 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:13:52 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:13:52 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:13:52
+2022-08-22  1:13:52 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:14:58 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:14:58 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:14:58 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:14:58 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:14:58 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:14:58 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:14:58 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:14:58 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:14:58 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:14:58 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:14:58 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:14:58 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:14:58 0 [Note] InnoDB: log sequence number 47411; transaction id 14
+2022-08-22  1:14:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:14:58 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:14:58 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:14:58 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:14:58 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:14:58
+2022-08-22  1:14:58 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:16:55 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:16:55 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:16:55 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:16:55 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:16:55 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:16:55 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:16:55 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:16:55 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:16:55 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:16:55 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:16:55 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:16:55 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:16:55 0 [Note] InnoDB: log sequence number 47495; transaction id 14
+2022-08-22  1:16:55 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:16:55 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:16:55 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:16:55 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:16:55 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:16:55
+2022-08-22  1:16:55 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:18:13 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:18:13 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:18:13 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:18:13 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:18:13 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:18:13 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:18:13 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:18:13 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:18:13 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:18:13 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:18:13 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:18:13 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:18:13 0 [Note] InnoDB: log sequence number 47579; transaction id 14
+2022-08-22  1:18:13 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:18:13 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:18:13 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:18:13 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:18:13 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:18:13
+2022-08-22  1:18:13 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:19:02 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:19:02 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:19:02 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:19:02 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:19:02 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:19:02 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:19:02 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:19:02 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:19:02 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:19:02 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:19:02 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:19:02 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:19:02 0 [Note] InnoDB: log sequence number 47663; transaction id 14
+2022-08-22  1:19:02 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:19:02 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:19:02 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:19:02 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:19:02 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:19:02
+2022-08-22  1:19:02 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:19:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:19:57 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:19:57 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:19:57 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:19:57 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:19:57 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:19:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:19:57 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:19:57 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:19:57 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:19:57 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:19:57 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:19:57 0 [Note] InnoDB: log sequence number 47747; transaction id 14
+2022-08-22  1:19:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:19:57 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:19:57 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:19:57 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:19:57 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:19:57
+2022-08-22  1:19:57 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:20:59 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:20:59 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:20:59 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:20:59 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:20:59 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:20:59 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:20:59 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:20:59 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:20:59 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:20:59 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:20:59 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:20:59 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:20:59 0 [Note] InnoDB: log sequence number 47831; transaction id 14
+2022-08-22  1:20:59 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:20:59 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:20:59 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:20:59 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:20:59 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:20:59
+2022-08-22  1:20:59 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:25:50 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:25:50 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:25:50 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:25:50 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:25:50 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:25:50 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:25:50 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:25:50 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:25:50 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:25:50 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:25:50 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:25:50 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:25:50 0 [Note] InnoDB: log sequence number 47915; transaction id 14
+2022-08-22  1:25:50 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:25:50 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:25:50 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:25:50 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:25:50 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:25:50
+2022-08-22  1:25:50 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:28:13 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:28:13 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:28:13 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:28:13 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:28:13 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:28:13 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:28:13 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:28:13 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:28:14 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:28:14 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:28:14 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:28:14 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:28:14 0 [Note] InnoDB: log sequence number 47999; transaction id 14
+2022-08-22  1:28:14 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:28:14 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:28:14 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:28:14 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:28:14 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:28:14
+2022-08-22  1:28:14 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:29:29 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:29:29 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:29:29 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:29:29 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:29:29 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:29:29 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:29:29 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:29:29 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:29:29 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:29:29 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:29:29 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:29:29 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:29:29 0 [Note] InnoDB: log sequence number 48083; transaction id 14
+2022-08-22  1:29:29 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:29:29 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:29:29 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:29:29 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:29:29 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:29:29
+2022-08-22  1:29:29 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:29:47 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:29:47 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:29:47 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:29:47 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:29:47 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:29:47 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:29:47 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:29:47 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:29:47 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:29:47 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:29:47 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:29:47 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:29:47 0 [Note] InnoDB: log sequence number 48167; transaction id 14
+2022-08-22  1:29:47 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:29:47 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:29:47 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:29:47 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:29:47 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:29:47
+2022-08-22  1:29:47 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:30:44 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:30:44 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:30:44 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:30:44 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:30:44 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:30:44 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:30:44 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:30:44 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:30:44 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:30:44 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:30:44 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:30:44 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:30:44 0 [Note] InnoDB: log sequence number 48251; transaction id 14
+2022-08-22  1:30:44 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:30:44 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:30:44 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:30:44 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:30:44 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:30:44
+2022-08-22  1:30:44 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:31:14 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:31:14 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:31:14 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:31:14 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:31:14 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:31:14 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:31:14 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:31:14 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:31:14 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:31:14 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:31:14 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:31:14 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:31:14 0 [Note] InnoDB: log sequence number 48335; transaction id 14
+2022-08-22  1:31:14 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:31:14 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:31:14 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:31:14 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:31:14 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:31:14
+2022-08-22  1:31:14 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:32:49 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:32:49 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:32:49 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:32:49 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:32:49 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:32:49 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:32:49 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:32:49 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:32:49 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:32:49 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:32:49 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:32:49 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:32:49 0 [Note] InnoDB: log sequence number 48419; transaction id 14
+2022-08-22  1:32:49 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:32:49 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:32:49 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:32:49 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:32:49 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:32:49
+2022-08-22  1:32:49 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:34:27 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:34:27 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:34:27 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:34:27 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:34:27 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:34:27 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:34:27 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:34:27 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:34:27 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:34:27 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:34:27 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:34:27 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:34:27 0 [Note] InnoDB: log sequence number 48503; transaction id 14
+2022-08-22  1:34:27 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:34:27 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:34:27 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:34:27 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:34:27 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:34:27
+2022-08-22  1:34:27 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:34:54 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:34:54 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:34:54 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:34:54 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:34:54 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:34:54 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:34:54 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:34:54 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:34:54 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:34:54 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:34:54 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:34:54 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:34:54 0 [Note] InnoDB: log sequence number 48587; transaction id 14
+2022-08-22  1:34:54 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:34:54 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:34:54 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:34:54 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:34:54 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:34:54
+2022-08-22  1:34:54 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:37:43 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:37:43 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:37:43 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:37:43 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:37:43 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:37:43 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:37:43 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:37:43 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:37:43 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:37:43 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:37:43 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:37:43 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:37:43 0 [Note] InnoDB: log sequence number 48671; transaction id 14
+2022-08-22  1:37:43 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:37:43 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:37:43 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:37:43 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:37:43 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:37:43
+2022-08-22  1:37:43 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:38:11 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:38:11 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:38:11 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:38:11 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:38:11 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:38:11 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:38:11 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:38:12 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:38:12 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:38:12 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:38:12 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:38:12 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:38:12 0 [Note] InnoDB: log sequence number 48755; transaction id 14
+2022-08-22  1:38:12 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:38:12 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:38:12 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:38:12 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:38:12 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:38:12
+2022-08-22  1:38:12 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  1:38:49 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  1:38:49 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  1:38:49 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  1:38:49 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  1:38:49 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  1:38:49 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  1:38:49 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  1:38:49 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  1:38:49 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  1:38:49 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  1:38:49 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  1:38:49 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  1:38:49 0 [Note] InnoDB: log sequence number 48839; transaction id 14
+2022-08-22  1:38:49 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  1:38:49 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  1:38:49 0 [Note] Server socket created on IP: '::'.
+2022-08-22  1:38:49 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  1:38:49 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  1:38:49
+2022-08-22  1:38:49 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  2:23:33 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  2:23:33 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  2:23:33 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  2:23:33 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  2:23:33 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  2:23:33 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  2:23:33 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  2:23:33 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  2:23:33 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  2:23:33 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  2:23:33 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  2:23:33 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  2:23:33 0 [Note] InnoDB: log sequence number 48923; transaction id 14
+2022-08-22  2:23:33 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  2:23:33 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  2:23:33 0 [Note] Server socket created on IP: '::'.
+2022-08-22  2:23:33 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  2:23:33 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  2:23:33
+2022-08-22  2:23:33 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  2:31:27 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  2:31:27 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  2:31:27 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  2:31:27 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  2:31:27 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  2:31:27 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  2:31:27 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  2:31:27 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  2:31:27 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  2:31:27 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  2:31:27 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  2:31:27 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  2:31:27 0 [Note] InnoDB: log sequence number 49007; transaction id 14
+2022-08-22  2:31:27 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  2:31:27 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  2:31:27 0 [Note] Server socket created on IP: '::'.
+2022-08-22  2:31:27 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  2:31:27 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  2:31:27
+2022-08-22  2:31:27 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution
+2022-08-22  2:32:42 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2022-08-22  2:32:42 0 [Note] InnoDB: Number of transaction pools: 1
+2022-08-22  2:32:42 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
+2022-08-22  2:32:42 0 [Note] InnoDB: Initializing buffer pool, total size = 128.000MiB, chunk size = 2.000MiB
+2022-08-22  2:32:42 0 [Note] InnoDB: Completed initialization of buffer pool
+2022-08-22  2:32:42 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
+2022-08-22  2:32:42 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=45505
+2022-08-22  2:32:43 0 [Note] InnoDB: Starting final batch to recover 2 pages from redo log.
+2022-08-22  2:32:43 0 [Note] InnoDB: 128 rollback segments are active.
+2022-08-22  2:32:43 0 [Note] InnoDB: Removed temporary tablespace data file: "./ibtmp1"
+2022-08-22  2:32:43 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
+2022-08-22  2:32:43 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
+2022-08-22  2:32:43 0 [Note] InnoDB: log sequence number 49091; transaction id 14
+2022-08-22  2:32:43 0 [Note] Plugin 'FEEDBACK' is disabled.
+2022-08-22  2:32:43 0 [Note] InnoDB: Loading buffer pool(s) from C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\data\ib_buffer_pool
+2022-08-22  2:32:43 0 [Note] Server socket created on IP: '::'.
+2022-08-22  2:32:43 0 [Note] Server socket created on IP: '0.0.0.0'.
+2022-08-22  2:32:43 0 [Note] InnoDB: Buffer pool(s) load completed at 220822  2:32:43
+2022-08-22  2:32:43 0 [Note] C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\bin\Debug\mariadb\bin\mysqld.exe: ready for connections.
+Version: '10.9.1-MariaDB'  socket: ''  port: 3306  mariadb.org binary distribution

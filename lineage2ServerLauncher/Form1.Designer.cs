@@ -47,12 +47,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(36, 110);
+            this.button2.Location = new System.Drawing.Point(36, 112);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(164, 57);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "mysqlStop";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -95,6 +96,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,10 +106,10 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button button2;
     }
 }
 
