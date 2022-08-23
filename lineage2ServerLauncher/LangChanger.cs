@@ -9,8 +9,9 @@ namespace lineage2ServerLauncher
 {
     internal class LangChanger
     {
-        public bool isRuLang;
-        public bool isEnLang;       
+        public static bool isRuLang;
+        public static bool isEnLang; 
+        
 
         Form1 form;
 
@@ -19,19 +20,36 @@ namespace lineage2ServerLauncher
             this.form = form;             
         }
 
-        public void isRuLanguage()
-        {     
-            isRuLang = true;
-            isEnLang = false;
-            change("button3","Русский");
+        public bool isRuLanguage(bool RuLang)
+        {            
+            if (RuLang)
+            {
+                isRuLang = true;
+                if (isRuLang)
+                {
+                    isEnLang = false;
+                    change("button3", "Русский");
+                    return true;
+                }
+            }
+            return false;
         }
         
-        public void isEnLanguage()
-        {
-            isRuLang = false;
-            isEnLang = true;
-            change("button3", "Russian");
-        }
+        public bool isEnLanguage(bool EnLang)
+        {    
+            if (EnLang)
+            {
+                isEnLang = true;
+                if (isEnLang)
+                {
+                   
+                    isRuLang = false;
+                    change("button3", "Russian");
+                    return true;
+                }              
+            }    
+            return false;                       
+        }        
 
         void change(string controlName, string text)
         {

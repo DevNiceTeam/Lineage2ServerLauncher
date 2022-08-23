@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -35,36 +34,48 @@ namespace lineage2ServerLauncher
 
         private void button3_Click(object sender, EventArgs e)
         {  
-            lc.isRuLanguage();
+            lc.isRuLanguage(true);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            lc.isEnLanguage();            
+            lc.isEnLanguage(true);            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {            
-            lc.isRuLanguage();
+           lc.isRuLanguage(true);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mc.stopMysql();
-            thr.Abort();
-            thr.Join(500);
+            Console.WriteLine("Останавливаю бд");
+            
+            if (mc.dbStarted)
+            {
+                mc.stopMysql();
+                thr.Abort();
+                thr.Join(500);
+            }
         }        
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Console.WriteLine(thr.ThreadState);
-            if (thr.ThreadState == System.Threading.ThreadState.Running)
-            {
-                MessageBox.Show("Бд запущена вы уверены что хотите выйти?" ,"", MessageBoxButtons.YesNo);
-               
-                e.Cancel = true;
-            }
             
+            //Console.WriteLine(thr.ThreadState);
+            if (mc.dbStarted)
+            {
+                var txt = MessageBox.Show("Бд запущена вы уверены что хотите выйти?", "", MessageBoxButtons.YesNo);
+                if (txt == DialogResult.Yes)
+                {
+                    button2_Click(null, e);
+                    this.Close();
+                }
+                if (txt == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }  
         }
     }
 }

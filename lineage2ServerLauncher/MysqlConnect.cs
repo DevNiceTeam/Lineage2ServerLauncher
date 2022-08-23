@@ -15,14 +15,16 @@ namespace lineage2ServerLauncher
 {
     internal class MysqlConnect 
     {
+        LangChanger ls;
         Form1 form;
         MysqlState ms;
-        bool dbStarted;
+        public bool dbStarted;
 
         public MysqlConnect(Form1 form)
         {
             this.form = form;
             ms = new MysqlState();
+            ls = new LangChanger(form);
         }
 
         public async void Connect()
