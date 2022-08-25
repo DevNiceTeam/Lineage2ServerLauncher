@@ -40,26 +40,43 @@ namespace lineage2ServerLauncher
 
 
             dbStarted = true;
-            ms.isDisabled = false;          
-            
-            if (Directory.Exists(fullPath)) //Проверяем наличие дириктории Data
+            ms.isDisabled = false;
+
+            if (File.Exists(mysqlCnf)) //Проверяем наличие конфига
             {
-                ms.isReadyToLaunch = true;
-                Console.WriteLine(fullPath + "Существует");
-                path.RemoveAt(0);
+
             }
             else
-            {
-                Console.WriteLine(fullPath + "Нету");                
-            }
-
-            if (!File.Exists(mysqlCnf)) //Проверяем наличие конфига
             {
                 var p = Path.GetFullPath("mariadb");
                 var fileText = "[mysqld]" + "\n" + "datadir=\"" + p + @"\data" + "\"";
                 createFile(mysqlCnf);
-                File.WriteAllText(mysqlCnf, fileText);                             
-            }            
+                File.WriteAllText(mysqlCnf, fileText);
+            }
+
+            if (Directory.Exists(fullPath)) //Проверяем наличие дириктории Data
+            {                
+                ms.isReadyToLaunch = true;
+                Console.WriteLine(fullPath + "Существует");
+                path.RemoveAt(0);
+            } 
+            else
+            {
+                if (File.Exists(mysqlCnf)) //Проверяем наличие конфига
+                {
+                    //подчищаем хвосты если есть
+                    try
+                    {
+                        Directory.Delete(fullPath);
+                        File.Delete(mysqlCnf);
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("Хвосты");
+                    }
+                }
+            }
 
             try
             {
@@ -73,13 +90,14 @@ namespace lineage2ServerLauncher
                     ms.isLoading = true;
                     if (ms.isReadyToLaunch)
                     {
-                        ms.isLoading = true;
                         await Task.Delay(4000);                        
                         Process.Start(new ProcessStartInfo
                         {
                             FileName = item,
                             WindowStyle = ProcessWindowStyle.Hidden
-                        });                        
+                        });
+                        ms.isLoading = false;
+                        ms.isLoaded = true;
                     }
                     else
                     {
@@ -89,15 +107,8 @@ namespace lineage2ServerLauncher
                             FileName = item,
                             WindowStyle = ProcessWindowStyle.Hidden
                         });
-                    }
-
-                    if (path.Count == 1)
-                    {                        
                         ms.isLoading = false;
                         ms.isLoaded = true;
-                        Console.WriteLine("1"+path[0]);
-                        Console.WriteLine("2" + path[1]);
-                        //Console.WriteLine(ms.isLoaded);                        
                     }
                 } 
             }
@@ -111,13 +122,12 @@ namespace lineage2ServerLauncher
         {           
             if (ms.isLoaded)
             {
-                ms.isLoaded = false;
-                dbStarted = false;
+                ms.isLoaded = false;                
                 ms.isDisabled = true;                
                 foreach (var process in Process.GetProcessesByName("mysqld"))
                 {
                     process.Kill();
-                }               
+                }
             }
         }
         
@@ -149,20 +159,26 @@ namespace lineage2ServerLauncher
             }            
         }
 
-        public async void resetMysql() //TODO:
+        public async void resetMysql()
         {
-            ms.isDisabled = true;
-            dbStarted = false;
+            ms.isDisabled = true;            
             var mysqlCnf = @"mariadb\my.cnf";
             var fullPath = Path.GetFullPath(@"mariadb\data");
 
-            File.Delete(mysqlCnf);
-            Directory.Delete(fullPath, true);
-            ms.isLoading = false;
-            ms.isLoaded = false;
-            ms.isFirstRun = false;
-            ms.isReadyToLaunch = false;
-            await Task.Delay(2000);
+            try
+            {
+                File.Delete(mysqlCnf);
+                Directory.Delete(fullPath, true);
+                ms.isLoading = false;
+                ms.isLoaded = false;
+                ms.isFirstRun = false;
+                ms.isReadyToLaunch = false;
+                await Task.Delay(2000);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Сброс не удался");
+            }    
         }
 
         void createFile(string path)

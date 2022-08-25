@@ -20,8 +20,6 @@ namespace lineage2ServerLauncher
         Thread thr1;
         Thread thr;
 
-
-
         public Form1()
         {
             lc = new LangChanger(this);
@@ -56,9 +54,10 @@ namespace lineage2ServerLauncher
                 button2.Enabled = false;
                 Console.WriteLine("Останавливаю бд");
                 mc.stopMysql();
-                thr1.Abort();
-                thr1.Join(500);                
-            }            
+                thr1.Abort();  
+                thr1.Join(500);
+            }
+            mc.dbStarted = false;
             button1.Enabled = true;
             button5.Enabled = true;
         }
@@ -70,7 +69,9 @@ namespace lineage2ServerLauncher
             button2.Enabled=false;            
             mc.resetMysql();
             button5.Enabled = true;
-            button1.Enabled = true;
+            button1.Enabled = true;            
+            thr.Abort();
+            thr.Join(500);
         }
 
         private void button3_Click(object sender, EventArgs e)
