@@ -15,7 +15,7 @@ namespace lineage2ServerLauncher
 {
     internal class MysqlConnect 
     {
-        LangChanger ls;
+        LangChanger lc;
         Form1 form;
         MysqlState ms;
         public bool dbStarted;
@@ -24,25 +24,24 @@ namespace lineage2ServerLauncher
         {
             this.form = form;
             ms = new MysqlState();
-            ls = new LangChanger(form);
+            lc = new LangChanger(form);
         }
 
         public async void Connect()
         {
-            Console.WriteLine("есть2");
-            dbStarted = true;
-            ms.isDisabled = false;
-            Thread thr = new Thread(checkState);
-            thr.Start();
+            var mysqlCnf = @"mariadb\my.cnf";
+            var fullPath = Path.GetFullPath(@"mariadb\data"); 
+
             List<String> path = new List<String>
             {
                 @"mariadb\bin\mariadb-install-db.exe",
                 @"mariadb\bin\mysqld.exe"
-            };           
-            var mysqlCnf = @"mariadb\my.cnf";
+            };
 
-            var fullPath = Path.GetFullPath(@"mariadb\data");
 
+            dbStarted = true;
+            ms.isDisabled = false;          
+            
             if (Directory.Exists(fullPath)) //Проверяем наличие дириктории Data
             {
                 ms.isReadyToLaunch = true;
@@ -74,6 +73,7 @@ namespace lineage2ServerLauncher
                     ms.isLoading = true;
                     if (ms.isReadyToLaunch)
                     {
+                        ms.isLoading = true;
                         await Task.Delay(4000);                        
                         Process.Start(new ProcessStartInfo
                         {
@@ -95,7 +95,8 @@ namespace lineage2ServerLauncher
                     {                        
                         ms.isLoading = false;
                         ms.isLoaded = true;
-                        Console.WriteLine(path[1]);
+                        Console.WriteLine("1"+path[0]);
+                        Console.WriteLine("2" + path[1]);
                         //Console.WriteLine(ms.isLoaded);                        
                     }
                 } 
@@ -110,18 +111,45 @@ namespace lineage2ServerLauncher
         {           
             if (ms.isLoaded)
             {
-                ms.isDisabled = true;
                 ms.isLoaded = false;
-                checkState();
                 dbStarted = false;
+                ms.isDisabled = true;                
                 foreach (var process in Process.GetProcessesByName("mysqld"))
                 {
-                    process.Kill();                    
-                }
+                    process.Kill();
+                }               
             }
         }
+        
+        public void checkOtherSQL()
+        {
+            List<String> sqlName = new List<String>
+            { 
+                "mysql",
+                "mysqld"
+            };
 
-        public void resetMysql()
+            foreach (var sql in sqlName)
+            {
+                foreach (var proc in Process.GetProcesses())
+                {
+                    if (proc.ProcessName == sql)
+                    {
+
+                        var txt = MessageBoxManager.Show("Запущена сторанняя бд отключить её??", "A third-party database is running to disable it??");
+                        if (txt == DialogResult.Yes)
+                        {
+                            foreach (var process in Process.GetProcessesByName(sql))
+                            {
+                                process.Kill();
+                            }
+                        }                        
+                    }
+                }
+            }            
+        }
+
+        public async void resetMysql() //TODO:
         {
             ms.isDisabled = true;
             dbStarted = false;
@@ -134,6 +162,7 @@ namespace lineage2ServerLauncher
             ms.isLoaded = false;
             ms.isFirstRun = false;
             ms.isReadyToLaunch = false;
+            await Task.Delay(2000);
         }
 
         void createFile(string path)
@@ -142,29 +171,25 @@ namespace lineage2ServerLauncher
             fs.Close();
         }
 
-        public async void checkState()
+        public void checkStateUpdateUI()
         {
-            Console.WriteLine("есть1");
-            //form.label1.Text = "Устанавливается...";
-            Console.WriteLine(dbStarted);
-            for (int i = 0; dbStarted; i++)
+            for (;;)
             {
                 if (ms.isLoading)
                 {
-                    form.label1.Text = "Запускается...";
+                    form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запускается..." : "Starting..."));
                 }
                 if (ms.isLoaded)
                 {
-                    form.label1.Text = "Запущено";
-                }               
+                    form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запущено" : "Launched"));
+                }
                 if (ms.isDisabled)
                 {
-                    form.label1.Text = "Выключено";
+                    form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Выключено" : "Turned off"));
                 }
-                await Task.Delay(3000);
-                Console.WriteLine("isLoading = " + ms.isLoading +
-                    " isLoaded = " + ms.isLoaded + 
-                    " isDisabled = " + ms.isDisabled);
+                //Console.WriteLine("isLoading = " + ms.isLoading +
+                //    " isLoaded = " + ms.isLoaded + 
+                //    " isDisabled = " + ms.isDisabled);
             }            
         }
     }

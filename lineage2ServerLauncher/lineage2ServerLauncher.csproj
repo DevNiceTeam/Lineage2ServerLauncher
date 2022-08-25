@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessageBoxManager.cs" />
     <Compile Include="LangChanger.cs" />
     <Compile Include="MysqlConnect.cs" />
     <Compile Include="Form1.cs">
