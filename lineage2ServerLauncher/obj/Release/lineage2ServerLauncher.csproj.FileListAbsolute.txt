@@ -4,6 +4,7 @@ C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLaunc
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.csproj.AssemblyReference.cache
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.csproj.SuggestedBindingRedirects.cache
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.Form1.resources
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.Form2.resources
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.Properties.Resources.resources
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.csproj.GenerateResource.cache
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Release\lineage2ServerLauncher.csproj.CoreCompileInputs.cache

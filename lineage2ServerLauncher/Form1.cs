@@ -112,6 +112,17 @@ namespace lineage2ServerLauncher
                     e.Cancel = true;
                 }               
             }  
-        }        
+        }
+
+        private void button6_Click(object sender, EventArgs e) //GS run
+        {
+            Form2 f = new Form2();
+            f.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e) //LS run
+        {
+
+        }
     }
 }

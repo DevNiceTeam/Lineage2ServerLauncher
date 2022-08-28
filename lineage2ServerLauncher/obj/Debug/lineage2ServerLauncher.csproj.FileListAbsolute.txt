@@ -9,3 +9,4 @@ C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLaunc
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.csproj.CoreCompileInputs.cache
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.exe
 C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.pdb
+C:\Users\Ахмед\Desktop\code\app3\lineage2ServerLauncher\lineage2ServerLauncher\obj\Debug\lineage2ServerLauncher.Form2.resources
