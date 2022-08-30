@@ -21,12 +21,13 @@ namespace lineage2ServerLauncher
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            GameServer gs = new GameServer();
+            textBox1.Text += gs.run();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GameServer gs = new GameServer();
-            textBox1.Text += gs.run();         
+                     
         }       
     }
 

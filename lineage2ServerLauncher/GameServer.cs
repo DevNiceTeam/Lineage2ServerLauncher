@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace lineage2ServerLauncher
 {
-    internal class GameServer : IServer
+    internal class GameServer
     {       
         public string getPath()
         {    
             return Path.GetFullPath(@"java\bin\java.exe"); 
         }
 
-        public String run()
+        public Task<int> run()
         {
+            var tcs = new TaskCompletionSource<int>();
             String txt = "";
 
             Process proc = Process.Start(new ProcessStartInfo
             {
                 FileName = getPath(),
-                Arguments = " -version",
+                WorkingDirectory = @"server\game",
+                Arguments = @"-server -Dfile.encoding=UTF-8 -Xms128m -Xmx256m -cp config;../libs/LoginServer.jar org.l2jmobius.loginserver.LoginServer",
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 RedirectStandardError = true,
@@ -34,7 +36,7 @@ namespace lineage2ServerLauncher
             
             proc.WaitForExit();
 
-            return txt;
+            return tcs.Task;
         }
     }
 }
