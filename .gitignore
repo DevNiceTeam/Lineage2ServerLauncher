@@ -3,3 +3,6 @@
 ################################################################################
 
 /lineage2ServerLauncher/bin/Debug/server
+/lineage2ServerLauncher/bin/Debug/java
+/lineage2ServerLauncher/bin/Release/server
+/lineage2ServerLauncher/bin/Release/java

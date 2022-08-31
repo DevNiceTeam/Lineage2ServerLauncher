@@ -147,8 +147,8 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        public System.Windows.Forms.Button button6;
+        public System.Windows.Forms.Button button7;
     }
 }
 

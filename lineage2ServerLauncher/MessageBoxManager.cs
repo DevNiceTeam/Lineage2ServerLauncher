@@ -239,11 +239,21 @@ namespace System.Windows.Forms
             Register();
         }
 
-        public static DialogResult Show(string txtRu, string txtEn)
+        public static DialogResult Show(string txtRu, string txtEn, bool onlyOK)
         {
-            var txt = LangChanger.isRuLang ? MessageBox.Show(txtRu, "L2 server Launcher by Nice Team", MessageBoxButtons.YesNo) :
-                                  MessageBox.Show(txtEn, "L2 server Launcher by Nice Team", MessageBoxButtons.YesNo);
-            
+            DialogResult txt;
+            if (onlyOK)
+            {
+                txt = LangChanger.isRuLang ? MessageBox.Show(txtRu, "L2 server Launcher by Nice Team", MessageBoxButtons.OK) :
+                                                  MessageBox.Show(txtEn, "L2 server Launcher by Nice Team", MessageBoxButtons.OK);
+            }
+            else
+            {
+                txt = LangChanger.isRuLang ? MessageBox.Show(txtRu, "L2 server Launcher by Nice Team", MessageBoxButtons.YesNo) :
+                                 MessageBox.Show(txtEn, "L2 server Launcher by Nice Team", MessageBoxButtons.YesNo);
+            }
+           
+
             return txt;
         }
     }

@@ -21,12 +21,17 @@ namespace lineage2ServerLauncher
         }
 
         private void Form3_Load(object sender, EventArgs e)
-        {             
-            ls.run(this);
+        {     
+            ls.Run(this);
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
-        {            
+        {
+            
+        }
+
+        private void Form3_FormClosed(object sender, FormClosedEventArgs e)
+        {
             ls.Stop();
         }
     }

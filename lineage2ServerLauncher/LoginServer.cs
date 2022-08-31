@@ -4,57 +4,65 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
     internal class LoginServer
     {
-        Process proc;
+        int p;      
+
+        
 
         public string getPath()
         {
             return Path.GetFullPath(@"java\bin\javaw.exe");
         }
 
-        public void run(Form3 f)
+        public void Run(Form3 f)
         {
-            if (!proc.Start())
+            Process proc = Process.Start(new ProcessStartInfo
             {
-                proc = Process.Start(new ProcessStartInfo
+                FileName = getPath(),
+                WorkingDirectory = @"server/login",
+                Arguments = @"-server -Xms1024m -Xmx1024m -jar ../libs/LoginServer.jar",
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+            });
+            proc.EnableRaisingEvents = true;
+            p = proc.Id;
+            proc.Exited += (sae, sea) =>
+            {
+                Form1.ActiveForm.Controls["button7"].Invoke(new Action(() =>
                 {
-                    FileName = getPath(),
-                    WorkingDirectory = @"server\login",
-                    Arguments = @"-server -Xms1024m -Xmx1024m -jar ../libs/LoginServer.jar",
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                });
-                proc.EnableRaisingEvents = true;
-                proc.Exited += (sae, sea) =>
-                {
-                    proc.Dispose();
-                    proc.Close();
-                };
-                proc.OutputDataReceived += (sa, ea) =>
+                    Form1.ActiveForm.Controls["button7"].Enabled = true;
+                }));
+            };
+            proc.OutputDataReceived += (sa, ea) =>
+            {
+                f.textBox1.BeginInvoke(new Action(() =>
                 {
                     f.textBox1.Text += ea.Data + Environment.NewLine;
-                    Console.WriteLine(ea.Data + Environment.NewLine);
-                };
-                proc.ErrorDataReceived += (s, a) =>
+                }));
+            };
+            proc.ErrorDataReceived += (s, a) =>
+            {
+                f.textBox1.BeginInvoke(new Action(() =>
                 {
                     f.textBox1.Text += a.Data + Environment.NewLine;
-                    Console.WriteLine(a.Data + Environment.NewLine);
-                };
+                }));
+            };
 
-                proc.BeginOutputReadLine();
-                proc.BeginErrorReadLine();
-            }
-            
+
+            proc.BeginOutputReadLine();
+            proc.BeginErrorReadLine();
         }
 
         public void Stop()
-        {            
-            
+        {
+            Process.GetProcessById(p).Kill();
         }
     }
 }

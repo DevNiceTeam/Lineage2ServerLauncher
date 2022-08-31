@@ -101,7 +101,7 @@ namespace lineage2ServerLauncher
             if (mc.dbStarted)
             {
                 var txt = MessageBoxManager.Show("Бд запущена вы уверены что хотите выйти?", 
-                    "DB is running are you sure you want to exit?");
+                    "DB is running are you sure you want to exit?",false);
                 if (txt == DialogResult.Yes)
                 {
                     button2.PerformClick();
@@ -123,7 +123,8 @@ namespace lineage2ServerLauncher
         private void button7_Click(object sender, EventArgs e) //LS run
         {
             Form3 f = new Form3();
-            f.Show();            
+            f.Show();
+            button7.Enabled = false;
         }
     }
 }

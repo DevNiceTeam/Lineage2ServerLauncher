@@ -146,7 +146,7 @@ namespace lineage2ServerLauncher
                     if (proc.ProcessName == sql)
                     {
 
-                        var txt = MessageBoxManager.Show("Запущена сторанняя бд отключить её??", "A third-party database is running to disable it??");
+                        var txt = MessageBoxManager.Show("Запущена сторанняя бд отключить её??", "A third-party database is running to disable it??",false);
                         if (txt == DialogResult.Yes)
                         {
                             foreach (var process in Process.GetProcessesByName(sql))
