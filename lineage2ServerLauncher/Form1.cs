@@ -16,14 +16,14 @@ namespace lineage2ServerLauncher
     public partial class Form1 : Form
     {
         LangChanger lc;
-        MysqlConnect mc;
+        MysqlStart mc;
         Thread thr1;
         Thread thr;
 
         public Form1()
         {
             lc = new LangChanger(this);
-            mc = new MysqlConnect(this);            
+            mc = new MysqlStart(this);            
             InitializeComponent();           
         }
 
@@ -32,6 +32,7 @@ namespace lineage2ServerLauncher
             lc.isRuLanguage(true);
             mc.checkOtherSQL();
             button2.Enabled = false;
+            button8.Enabled = false;
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -41,8 +42,16 @@ namespace lineage2ServerLauncher
             button5.Enabled = false;
             thr = new Thread(mc.checkStateUpdateUI);
             thr1 = new Thread(mc.Connect);
-
-            thr.Start();
+            thr.IsBackground = true;
+            if (thr.ThreadState == ThreadState.Background) //TODO Не работает
+            {
+                Console.WriteLine("Уже запущен");
+            }
+            else
+            {
+                thr.Start();
+            }
+            
             await Task.Delay(2000);
             thr1.Start();                     
         }
@@ -69,9 +78,17 @@ namespace lineage2ServerLauncher
             button2.Enabled=false;            
             mc.resetMysql();
             button5.Enabled = true;
-            button1.Enabled = true;            
-            thr.Abort();
-            thr.Join(500);
+            button1.Enabled = true;
+            try
+            {
+                thr.Abort();
+                thr.Join(500);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Потоки не были запущены");
+            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -116,15 +133,30 @@ namespace lineage2ServerLauncher
 
         private void button6_Click(object sender, EventArgs e) //GS run
         {
-            Form2 f = new Form2();
+            GameForm f = new GameForm();
             f.Show();
+            button6.Enabled = false;
+            if (f.isRun)
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button5.Enabled = false;
+                button8.Enabled = false;
+            }
         }
 
         private void button7_Click(object sender, EventArgs e) //LS run
         {
-            Form3 f = new Form3();
+            LoginForm f = new LoginForm();
             f.Show();
             button7.Enabled = false;
+            if (f.isRun)
+            {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button5.Enabled = false;
+                button8.Enabled = false;
+            }
         }
     }
 }

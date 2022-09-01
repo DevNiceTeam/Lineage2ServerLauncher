@@ -14,7 +14,6 @@ using lineage2ServerLauncher;
 namespace System.Windows.Forms
 
 {
-
     public class MessageBoxManager
     {
         private delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
@@ -70,9 +69,7 @@ namespace System.Windows.Forms
         private static extern IntPtr GetDlgItem(IntPtr hDlg, int nIDDlgItem);
 
         [DllImport("user32.dll", EntryPoint = "SetWindowTextW", CharSet = CharSet.Unicode)]
-        private static extern bool SetWindowText(IntPtr hWnd, string lpString);
-
-        
+        private static extern bool SetWindowText(IntPtr hWnd, string lpString);        
 
         [StructLayout(LayoutKind.Sequential)]
         public struct CWPRETSTRUCT

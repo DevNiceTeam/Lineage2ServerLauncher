@@ -9,21 +9,14 @@ using System.Windows.Forms;
 namespace lineage2ServerLauncher
 {
     internal class LoginServer
-    {
-        int p;      
+    {        
+        int p;  
 
-        
-
-        public string getPath()
-        {
-            return Path.GetFullPath(@"java\bin\javaw.exe");
-        }
-
-        public void Run(Form3 f)
+        public void Run(LoginForm f)
         {
             Process proc = Process.Start(new ProcessStartInfo
             {
-                FileName = getPath(),
+                FileName = Path.GetFullPath(@"java\bin\javaw.exe"),
                 WorkingDirectory = @"server/login",
                 Arguments = @"-server -Xms1024m -Xmx1024m -jar ../libs/LoginServer.jar",
                 UseShellExecute = false,
@@ -54,7 +47,6 @@ namespace lineage2ServerLauncher
                     f.textBox1.Text += a.Data + Environment.NewLine;
                 }));
             };
-
 
             proc.BeginOutputReadLine();
             proc.BeginErrorReadLine();

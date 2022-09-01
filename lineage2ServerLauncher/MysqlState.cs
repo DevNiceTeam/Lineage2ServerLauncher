@@ -5,7 +5,8 @@
         public bool isFirstRun; //Первый запуск
         public bool isLoading;  //Бд в процессе включения
         public bool isLoaded; //Бд включено и уже работает  
-        public bool isReadyToLaunch; //Бд готова к запуску
-        public bool isDisabled; //Бд выключена        
+        public bool isReadyToLaunch; //Бд готова к запуску gs ls
+        public bool isDisabled; //Бд выключена
+        public bool isInstalled; // В бд загружены все sql файлы сервера
     }
 }

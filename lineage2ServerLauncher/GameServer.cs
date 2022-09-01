@@ -2,41 +2,63 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
     internal class GameServer
-    {       
-        public string getPath()
-        {    
-            return Path.GetFullPath(@"java\bin\java.exe"); 
-        }
+    {
+        public bool isRun;
+        
+        int p;          
 
-        public Task<int> run()
+        public void Run(GameForm f)
         {
-            var tcs = new TaskCompletionSource<int>();
-            String txt = "";
-
+            isRun = true;
             Process proc = Process.Start(new ProcessStartInfo
             {
-                FileName = getPath(),
-                WorkingDirectory = @"server\game",
-                Arguments = @"-server -Dfile.encoding=UTF-8 -Xms128m -Xmx256m -cp config;../libs/LoginServer.jar org.l2jmobius.loginserver.LoginServer",
+                FileName = Path.GetFullPath(@"java\bin\javaw.exe"),
+                WorkingDirectory = @"server/game",
+                Arguments = @"-server -Xms2048m -Xmx2048m -jar ../libs/GameServer.jar",
                 UseShellExecute = false,
                 CreateNoWindow = true,
+                RedirectStandardOutput = true,
                 RedirectStandardError = true,
             });
-
-            proc.BeginErrorReadLine();
+            proc.EnableRaisingEvents = true;
+            p = proc.Id;
+            proc.Exited += (sae, sea) =>
+            {
+                Form1.ActiveForm.Controls["button6"].Invoke(new Action(() =>
+                {
+                    Form1.ActiveForm.Controls["button6"].Enabled = true;
+                }));
+            };
+            proc.OutputDataReceived += (sa, ea) =>
+            {                
+                f.textBox1.BeginInvoke(new Action(() =>
+                {
+                    f.textBox1.Text += ea.Data + Environment.NewLine;
+                }));
+            };
             proc.ErrorDataReceived += (s, a) =>
             {
-                txt += a.Data + Environment.NewLine;
-            };  
-            
-            proc.WaitForExit();
+                f.textBox1.BeginInvoke(new Action(() =>
+                {
+                    f.textBox1.Text += a.Data + Environment.NewLine;
+                }));
+            };
 
-            return tcs.Task;
+            proc.BeginOutputReadLine();
+            proc.BeginErrorReadLine();
+        }
+
+        public void Stop()
+        {
+            Process.GetProcessById(p).Kill();
+            isRun = false;
         }
     }
 }
