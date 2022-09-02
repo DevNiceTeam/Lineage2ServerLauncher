@@ -15,7 +15,6 @@ namespace lineage2ServerLauncher
 {
     internal class MysqlStart 
     {
-        LangChanger lc;
         Form1 form;
         MysqlState ms;
         public bool dbStarted;
@@ -24,10 +23,9 @@ namespace lineage2ServerLauncher
         {
             this.form = form;
             ms = new MysqlState();
-            lc = new LangChanger(form);
         }
 
-        public async void Connect()
+        public async void Start()
         {
             var mysqlConfig = @"mariadb\my.cnf";
             var fullPathDataDir = Path.GetFullPath(@"mariadb\data"); 
@@ -39,43 +37,34 @@ namespace lineage2ServerLauncher
             };
 
             dbStarted = true;
-            ms.isDisabled = false;
+            ms.isDisabled = false;            
 
-            if (File.Exists(mysqlConfig)) //Проверяем наличие конфига
-            {
-
-            }
-            else
-            {
-                var p = Path.GetFullPath("mariadb");
-                var fileText = "[mysqld]" + "\n" + "datadir=\"" + p + @"\data" + "\"";
-                using (File.Create(mysqlConfig))
-                {}
-                File.WriteAllText(mysqlConfig, fileText);
-                
-            }
-
-            if (Directory.Exists(fullPathDataDir)) //Проверяем наличие дириктории Data
-            {  
+            if (Directory.Exists(fullPathDataDir) | File.Exists(mysqlConfig)) //Проверяем наличие дириктории Data
+            {                
                 Console.WriteLine(fullPathDataDir + "Существует");
-                path.RemoveAt(0);
-                ms.isFirstRun = true;
+                path.RemoveAt(0);                
             } 
             else
             {
-                if (File.Exists(mysqlConfig)) //Проверяем наличие конфига
-                {
-                    //подчищаем хвосты если есть
-                    try
-                    {
-                        Directory.Delete(fullPathDataDir);
-                        File.Delete(mysqlConfig);
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Хвосты");
-                    }
+                ms.isFirstRun = true;
+
+                try              //подчищаем хвосты если есть
+                {                    
+                    Directory.Delete(fullPathDataDir);
+                    File.Delete(mysqlConfig);
+                    Console.WriteLine("Хвосты есть");
                 }
+                catch (Exception)
+                {
+                    Console.WriteLine("Хвостов нету");
+                }
+                
+
+                var p = Path.GetFullPath("mariadb");
+                var fileText = "[mysqld]" + "\n" + "datadir=\"" + p + @"\data" + "\"";
+                using (File.Create(mysqlConfig))
+                { }
+                File.WriteAllText(mysqlConfig, fileText);
             }
 
             try
@@ -97,8 +86,7 @@ namespace lineage2ServerLauncher
                             WindowStyle = ProcessWindowStyle.Hidden
                         });                       
                         ms.isLoading = false;
-                        ms.isLoaded = true;
-                        form.button8.Enabled = true;
+                        ms.isLoaded = true;                        
                     }
                     else
                     {
@@ -112,9 +100,10 @@ namespace lineage2ServerLauncher
                         ms.isLoaded = true;
                     }
                 }
-                if (ms.isFirstRun)
+                form.button2.Enabled = true;
+                form.button8.Enabled = true;
+                if (ms.isFirstRun) 
                 {
-                    Console.WriteLine("sssss");
                     Directory.CreateDirectory(@"mariadb/data/gs");
                     Directory.CreateDirectory(@"mariadb/data/ls");
                 }
@@ -187,28 +176,9 @@ namespace lineage2ServerLauncher
             }    
         }
 
-        public async void checkStateUpdateUI()
+        public MysqlState GetMysqlState()
         {
-            for (;;)
-            {
-                await Task.Delay(500);
-                Console.WriteLine(ms.isFirstRun);
-                if (ms.isLoading)
-                {
-                    form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запускается..." : "Starting..."));
-                }
-                if (ms.isLoaded)
-                {
-                    form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запущено" : "Launched"));
-                }
-                if (ms.isDisabled)
-                {
-                    form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Выключено" : "Turned off"));
-                }
-                //Console.WriteLine("isLoading = " + ms.isLoading +
-                //    " isLoaded = " + ms.isLoaded + 
-                //    " isDisabled = " + ms.isDisabled);
-            }            
+            return ms;
         }
     }
 }

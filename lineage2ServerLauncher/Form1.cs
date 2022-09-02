@@ -16,57 +16,57 @@ namespace lineage2ServerLauncher
     public partial class Form1 : Form
     {
         LangChanger lc;
-        MysqlStart mc;
+        MysqlStart ms;
+        UpdInterface upd;
         Thread thr1;
-        Thread thr;
+        Thread thr;        
 
         public Form1()
         {
             lc = new LangChanger(this);
-            mc = new MysqlStart(this);            
+            ms = new MysqlStart(this);
+            upd = new UpdInterface(this, ms.GetMysqlState());
             InitializeComponent();           
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {            
             lc.isRuLanguage(true);
-            mc.checkOtherSQL();
+            ms.checkOtherSQL();
             button2.Enabled = false;
             button8.Enabled = false;
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            button1.Enabled = false;
-            button2.Enabled = true;
+            
+            button1.Enabled = false;            
             button5.Enabled = false;
-            thr = new Thread(mc.checkStateUpdateUI);
-            thr1 = new Thread(mc.Connect);
-            thr.IsBackground = true;
-            if (thr.ThreadState == ThreadState.Background) //TODO Не работает
+            thr1 = new Thread(new ThreadStart(ms.Start));
+            thr1.Start();
+            await Task.Delay(1000);
+            thr = new Thread(new ThreadStart(upd.checkStateUpdateUI));
+            if (thr.IsAlive) //TODO не работает
             {
-                Console.WriteLine("Уже запущен");
+                Console.WriteLine("Поток запущен" + thr.IsAlive);
             }
             else
             {
-                thr.Start();
-            }
-            
-            await Task.Delay(2000);
-            thr1.Start();                     
+                thr.Start();                
+            }  
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (mc.dbStarted)
+            if (ms.dbStarted)
             {
                 button2.Enabled = false;
                 Console.WriteLine("Останавливаю бд");
-                mc.stopMysql();
+                ms.stopMysql();                
                 thr1.Abort();  
                 thr1.Join(500);
             }
-            mc.dbStarted = false;
+            ms.dbStarted = false;
             button1.Enabled = true;
             button5.Enabled = true;
         }
@@ -76,7 +76,7 @@ namespace lineage2ServerLauncher
             button1.Enabled=false;
             button2.PerformClick();
             button2.Enabled=false;            
-            mc.resetMysql();
+            ms.resetMysql();
             button5.Enabled = true;
             button1.Enabled = true;
             try
@@ -115,7 +115,7 @@ namespace lineage2ServerLauncher
                 Console.WriteLine("Потоки не были запущены");
             }
             
-            if (mc.dbStarted)
+            if (ms.dbStarted)
             {
                 var txt = MessageBoxManager.Show("Бд запущена вы уверены что хотите выйти?", 
                     "DB is running are you sure you want to exit?",false);

@@ -62,11 +62,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(239, 50);
+            this.label1.Location = new System.Drawing.Point(236, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.Size = new System.Drawing.Size(139, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Выключено";
+            this.label1.Text = "Выключено                   ";
             // 
             // button3
             // 
@@ -90,7 +90,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(36, 326);
+            this.button5.Location = new System.Drawing.Point(36, 332);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 55);
             this.button5.TabIndex = 5;
