@@ -18,42 +18,39 @@ namespace lineage2ServerLauncher
         LangChanger lc;
         MysqlStart ms;
         UpdInterface upd;
-        Thread thr1;
-        Thread thr;        
+        public Task task;
+        public CancellationTokenSource cts;
 
         public Form1()
         {
             lc = new LangChanger(this);
             ms = new MysqlStart(this);
             upd = new UpdInterface(this, ms.GetMysqlState());
-            InitializeComponent();           
-        }
+            InitializeComponent();
+        }       
 
         private void Form1_Load(object sender, EventArgs e)
-        {            
+        {
             lc.isRuLanguage(true);
             ms.checkOtherSQL();
             button2.Enabled = false;
             button8.Enabled = false;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            
-            button1.Enabled = false;            
-            button5.Enabled = false;
-            thr1 = new Thread(new ThreadStart(ms.Start));
-            thr1.Start();
-            await Task.Delay(1000);
-            thr = new Thread(new ThreadStart(upd.checkStateUpdateUI));
-            if (thr.IsAlive) //TODO не работает
+            button1.Enabled = false;
+            button5.Enabled = false;            
+            upd.checkStateUpdateUI();
+            ms.Start();
+            if (task.Status == TaskStatus.Running)
             {
-                Console.WriteLine("Поток запущен" + thr.IsAlive);
+                Console.WriteLine("2Жив");
             }
             else
             {
-                thr.Start();                
-            }  
+                Console.WriteLine("2Мертв");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,9 +59,24 @@ namespace lineage2ServerLauncher
             {
                 button2.Enabled = false;
                 Console.WriteLine("Останавливаю бд");
-                ms.stopMysql();                
-                thr1.Abort();  
-                thr1.Join(500);
+                ms.stopMysql();
+                if (task.Status == TaskStatus.Running)
+                {
+                    Console.WriteLine("3Жив");
+                }
+                else
+                {
+                    Console.WriteLine("3Мертв");
+                }
+                cts.Cancel();                
+                if (task.Status == TaskStatus.Running)
+                {
+                    Console.WriteLine("4Жив");
+                }
+                else
+                {
+                    Console.WriteLine("4Мертв");
+                }
             }
             ms.dbStarted = false;
             button1.Enabled = true;
@@ -73,52 +85,48 @@ namespace lineage2ServerLauncher
         private void button5_Click(object sender, EventArgs e)
         {
             button5.Enabled = false;
-            button1.Enabled=false;
+            button1.Enabled = false;
             button2.PerformClick();
-            button2.Enabled=false;            
+            button2.Enabled = false;
             ms.resetMysql();
             button5.Enabled = true;
             button1.Enabled = true;
             try
             {
-                thr.Abort();
-                thr.Join(500);
+                //thr.Abort
             }
             catch (Exception)
             {
                 Console.WriteLine("Потоки не были запущены");
             }
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {  
+        {
             lc.isRuLanguage(true);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            lc.isEnLanguage(true);            
-        }   
+            lc.isEnLanguage(true);
+        }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
-                thr1.Abort();
-                thr1.Join(500);
-                thr.Abort();
-                thr.Join(500);
+                //thr.Abort
             }
             catch (Exception)
             {
                 Console.WriteLine("Потоки не были запущены");
             }
-            
+
             if (ms.dbStarted)
             {
-                var txt = MessageBoxManager.Show("Бд запущена вы уверены что хотите выйти?", 
-                    "DB is running are you sure you want to exit?",false);
+                var txt = MessageBoxManager.Show("Бд запущена вы уверены что хотите выйти?",
+                    "DB is running are you sure you want to exit?", false);
                 if (txt == DialogResult.Yes)
                 {
                     button2.PerformClick();
@@ -127,8 +135,8 @@ namespace lineage2ServerLauncher
                 if (txt == DialogResult.No)
                 {
                     e.Cancel = true;
-                }               
-            }  
+                }
+            }
         }
 
         private void button6_Click(object sender, EventArgs e) //GS run
@@ -156,6 +164,18 @@ namespace lineage2ServerLauncher
                 button2.Enabled = false;
                 button5.Enabled = false;
                 button8.Enabled = false;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (task.Status == TaskStatus.Running)
+            {
+                Console.WriteLine("2Жив");
+            }
+            else
+            {
+                Console.WriteLine("2Мертв");
             }
         }
     }
