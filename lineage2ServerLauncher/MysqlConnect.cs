@@ -4,7 +4,7 @@ using System;
 namespace lineage2ServerLauncher
 {
     class MysqlConnect
-    {
+    {        
         private static MySqlConnection Connection(string host, int port, string database, string username, string password)
         {
             // Connection String.
@@ -20,7 +20,7 @@ namespace lineage2ServerLauncher
         {
             string host = "127.0.0.1";
             int port = 3306;
-            string database = "simplehr";
+            string database = "server";
             string username = "root";
             string password = "";
 

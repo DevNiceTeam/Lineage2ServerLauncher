@@ -25,7 +25,7 @@ namespace lineage2ServerLauncher
             {
                 while (true)
                 {
-                    Thread.Sleep(1000);
+                    //Thread.Sleep(1000);
                     if (ms.isLoading)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запускается..." : "Starting..."));
@@ -33,14 +33,15 @@ namespace lineage2ServerLauncher
                     if (ms.isLoaded)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запущено" : "Launched"));
+                        form.cts.Cancel();
                     }
                     if (ms.isDisabled)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Выключено" : "Turned off"));
                     }
-                    Console.WriteLine("isLoading = " + ms.isLoading +
-                        " isLoaded = " + ms.isLoaded +
-                        " isDisabled = " + ms.isDisabled + " thr.State = " + form.task.Status);
+                    //Console.WriteLine("isLoading = " + ms.isLoading +
+                    //    " isLoaded = " + ms.isLoaded +
+                    //    " isDisabled = " + ms.isDisabled + " thr.State = " + form.task.Status);
                     if (form.cts.IsCancellationRequested)  //прерывание потока task
                     {
                         return;

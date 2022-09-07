@@ -42,15 +42,12 @@ namespace lineage2ServerLauncher
             button1.Enabled = false;
             button5.Enabled = false;            
             upd.checkStateUpdateUI();
-            ms.Start();
-            if (task.Status == TaskStatus.Running)
-            {
-                Console.WriteLine("2Жив");
-            }
-            else
-            {
-                Console.WriteLine("2Мертв");
-            }
+            
+                
+                
+                
+                ms.Start();// TODO мб поместить в поток???
+                                
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,23 +57,9 @@ namespace lineage2ServerLauncher
                 button2.Enabled = false;
                 Console.WriteLine("Останавливаю бд");
                 ms.stopMysql();
-                if (task.Status == TaskStatus.Running)
-                {
-                    Console.WriteLine("3Жив");
-                }
-                else
-                {
-                    Console.WriteLine("3Мертв");
-                }
-                cts.Cancel();                
-                if (task.Status == TaskStatus.Running)
-                {
-                    Console.WriteLine("4Жив");
-                }
-                else
-                {
-                    Console.WriteLine("4Мертв");
-                }
+                upd.checkStateUpdateUI();
+                cts.Cancel(); 
+
             }
             ms.dbStarted = false;
             button1.Enabled = true;
@@ -93,7 +76,7 @@ namespace lineage2ServerLauncher
             button1.Enabled = true;
             try
             {
-                //thr.Abort
+                cts.Cancel();
             }
             catch (Exception)
             {
@@ -116,7 +99,7 @@ namespace lineage2ServerLauncher
         {
             try
             {
-                //thr.Abort
+                cts.Cancel();
             }
             catch (Exception)
             {
@@ -125,7 +108,7 @@ namespace lineage2ServerLauncher
 
             if (ms.dbStarted)
             {
-                var txt = MessageBoxManager.Show("Бд запущена вы уверены что хотите выйти?",
+                var txt = Msg.Show("Бд запущена вы уверены что хотите выйти?",
                     "DB is running are you sure you want to exit?", false);
                 if (txt == DialogResult.Yes)
                 {
@@ -167,16 +150,10 @@ namespace lineage2ServerLauncher
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
-            if (task.Status == TaskStatus.Running)
-            {
-                Console.WriteLine("2Жив");
-            }
-            else
-            {
-                Console.WriteLine("2Мертв");
-            }
+            DbInstall db = new DbInstall();
+            db.install();
         }
     }
 }

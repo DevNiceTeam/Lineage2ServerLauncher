@@ -84,9 +84,7 @@ namespace lineage2ServerLauncher
                         {
                             FileName = item,
                             WindowStyle = ProcessWindowStyle.Hidden
-                        });                       
-                        ms.isLoading = false;
-                        ms.isLoaded = true;                        
+                        });               
                     }
                     else
                     {
@@ -96,17 +94,16 @@ namespace lineage2ServerLauncher
                             FileName = item,
                             WindowStyle = ProcessWindowStyle.Hidden
                         });
-                        ms.isLoading = false;
-                        ms.isLoaded = true;
                     }
-                }
-                form.button2.Enabled = true;
-                form.button8.Enabled = true;
+                }                
                 if (ms.isFirstRun) 
                 {
-                    Directory.CreateDirectory(@"mariadb/data/gs");
-                    Directory.CreateDirectory(@"mariadb/data/ls");
+                    Directory.CreateDirectory(@"mariadb/data/server");
                 }
+                ms.isLoading = false;
+                ms.isLoaded = true;
+                form.button2.Enabled = true;
+                form.button8.Enabled = true;
             }
             catch (Exception)
             {
@@ -141,7 +138,7 @@ namespace lineage2ServerLauncher
                 {
                     if (proc.ProcessName == sql)
                     {
-                        var txt = MessageBoxManager.Show("Запущена сторанняя бд отключить её??", "A third-party database is running to disable it??",false);
+                        var txt = Msg.Show("Запущена сторанняя бд отключить её??", "A third-party database is running to disable it??",false);
                         if (txt == DialogResult.Yes)
                         {
                             foreach (var process in Process.GetProcessesByName(sql))

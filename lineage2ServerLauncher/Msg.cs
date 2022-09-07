@@ -14,7 +14,7 @@ using lineage2ServerLauncher;
 namespace System.Windows.Forms
 
 {
-    public class MessageBoxManager
+    public class Msg
     {
         private delegate IntPtr HookProc(int nCode, IntPtr wParam, IntPtr lParam);
         private delegate bool EnumChildProc(IntPtr hWnd, IntPtr lParam);
@@ -117,7 +117,7 @@ namespace System.Windows.Forms
         /// </summary>
         public static string No = "&No";
 
-        static MessageBoxManager()
+        static Msg()
         {
             hookProc = new HookProc(MessageBoxHookProc);
             enumProc = new EnumChildProc(MessageBoxEnumProc);
@@ -125,11 +125,11 @@ namespace System.Windows.Forms
         }
 
         /// <summary>
-        /// Enables MessageBoxManager functionality
+        /// Enables Msg functionality
         /// </summary>
         /// <remarks>
-        /// MessageBoxManager functionality is enabled on current thread only.
-        /// Each thread that needs MessageBoxManager functionality has to call this method.
+        /// Msg functionality is enabled on current thread only.
+        /// Each thread that needs Msg functionality has to call this method.
         /// </remarks>
         public static void Register()
         {
@@ -139,10 +139,10 @@ namespace System.Windows.Forms
         }
 
         /// <summary>
-        /// Disables MessageBoxManager functionality
+        /// Disables Msg functionality
         /// </summary>
         /// <remarks>
-        /// Disables MessageBoxManager functionality on current thread only.
+        /// Disables Msg functionality on current thread only.
         /// </remarks>
         public static void Unregister()
         {
@@ -220,7 +220,7 @@ namespace System.Windows.Forms
             return true;
         }
 
-        public static void En()
+        public void En()
         {
             Unregister();
             Yes = "Yep!";
@@ -228,7 +228,7 @@ namespace System.Windows.Forms
             Register();
         }
 
-        public static void Ru()
+        public void Ru()
         {
             Unregister();
             Yes = "Да";
@@ -239,6 +239,7 @@ namespace System.Windows.Forms
         public static DialogResult Show(string txtRu, string txtEn, bool onlyOK)
         {
             DialogResult txt;
+
             if (onlyOK)
             {
                 txt = LangChanger.isRuLang ? MessageBox.Show(txtRu, "L2 server Launcher by Nice Team", MessageBoxButtons.OK) :
@@ -249,7 +250,6 @@ namespace System.Windows.Forms
                 txt = LangChanger.isRuLang ? MessageBox.Show(txtRu, "L2 server Launcher by Nice Team", MessageBoxButtons.YesNo) :
                                  MessageBox.Show(txtEn, "L2 server Launcher by Nice Team", MessageBoxButtons.YesNo);
             }
-           
 
             return txt;
         }

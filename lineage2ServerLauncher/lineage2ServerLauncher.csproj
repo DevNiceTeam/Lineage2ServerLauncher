@@ -109,7 +109,7 @@
     </Compile>
     <Compile Include="LoginServer.cs" />
     <Compile Include="GameServer.cs" />
-    <Compile Include="MessageBoxManager.cs" />
+    <Compile Include="Msg.cs" />
     <Compile Include="LangChanger.cs" />
     <Compile Include="MysqlConnect.cs" />
     <Compile Include="MysqlStart.cs" />

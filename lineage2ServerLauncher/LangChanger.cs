@@ -13,10 +13,11 @@ namespace lineage2ServerLauncher
         public static bool isEnLang; 
       
         Form1 form;
+        Msg msg = new Msg();
 
         public LangChanger(Form1 form)
         {
-            this.form = form;             
+            this.form = form;            
         }
 
         public bool isRuLanguage(bool RuLang)
@@ -27,7 +28,7 @@ namespace lineage2ServerLauncher
                 if (isRuLang)
                 {
                     isEnLang = false;
-                    MessageBoxManager.Ru();                    
+                    msg.Ru();                    
                     change("button3", "Русский");
                     return true;
                 }
@@ -43,7 +44,7 @@ namespace lineage2ServerLauncher
                 if (isEnLang)
                 {
                     isRuLang = false;
-                    MessageBoxManager.En();
+                    msg.En();
                     change("button3", "Russian");
                     return true;
                 }
