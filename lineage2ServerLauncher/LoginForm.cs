@@ -13,16 +13,23 @@ namespace lineage2ServerLauncher
 {
     public partial class LoginForm : Form
     {
+        public bool closed = false;
         public bool isRun;
         LoginServer ls;
-        public LoginForm()
+        Form1 frm1;
+        public LoginForm(Form1 form)
         {
             InitializeComponent();
             ls = new LoginServer();
+            frm1 = form;
         }        
 
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (ls.Exited(this))
+            {
+                frm1.button7.Enabled = true;
+            }            
             isRun = false;
             ls.Stop();
         }

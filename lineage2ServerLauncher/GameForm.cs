@@ -16,14 +16,21 @@ namespace lineage2ServerLauncher
     {
         public bool isRun;
         GameServer gs;
-        public GameForm()
+        public bool closed = false;
+        Form1 frm1;
+        public GameForm(Form1 frm)
         {
             InitializeComponent();
             gs = new GameServer();
+            frm1 = frm;
         }
 
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            if (gs.Exited(this))
+            {
+                frm1.button6.Enabled = true;
+            }
             isRun = false;
             gs.Stop();            
         }

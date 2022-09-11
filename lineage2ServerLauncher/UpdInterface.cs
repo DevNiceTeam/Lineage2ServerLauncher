@@ -12,20 +12,23 @@ namespace lineage2ServerLauncher
         Form1 form;
         MysqlState ms;
 
-        public UpdInterface(Form1 form, MysqlState mc)
+        public UpdInterface(Form1 form, MysqlState ms)
         {
             this.form = form;
-            this.ms = mc;            
+            this.ms = ms;
         }
         
         public void checkStateUpdateUI()
         {
             form.cts = new CancellationTokenSource();
-            form.task = Task.Run(() =>
+            
+            form.task = Task.Factory.StartNew(() =>
             {
                 while (true)
                 {
-                    //Thread.Sleep(1000);
+                    
+                    Thread.Sleep(1000);
+                    
                     if (ms.isLoading)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запускается..." : "Starting..."));
@@ -33,23 +36,46 @@ namespace lineage2ServerLauncher
                     if (ms.isLoaded)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запущено" : "Launched"));
-                        form.cts.Cancel();
+                        //form.cts.Cancel();
                     }
                     if (ms.isDisabled)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Выключено" : "Turned off"));
                     }
-                    //Console.WriteLine("isLoading = " + ms.isLoading +
-                    //    " isLoaded = " + ms.isLoaded +
-                    //    " isDisabled = " + ms.isDisabled + " thr.State = " + form.task.Status);
+                    
+
+                    if (ms.isInstallation)
+                    {
+                        form.label2.Invoke(new Action(() => form.label2.Text = LangChanger.isRuLang ? "Устанавливается..." : "Installation..."));
+                    }
+
+                    if (ms.isInstalled)
+                    {
+                        form.label2.Invoke(new Action(() => form.label2.Text = LangChanger.isRuLang ? "Установлена" : "Installed"));
+                        //form.cts.Cancel();
+                    }
+
+                    debug();
                     if (form.cts.IsCancellationRequested)  //прерывание потока task
                     {
                         return;
-                    }
-
+                    } 
                 }
-            });
-            
+            });            
+        }
+
+        void debug()
+        {
+            Console.WriteLine($@"isLoading = " + ms.isLoading +
+                        " isLoaded = " + ms.isLoaded +
+                        " isDisabled = " + ms.isDisabled + " thr.State = " + form.task.Status +
+                        " isInstallation = " + ms.isInstallation +
+                        " isInstalled = " + ms.isInstalled);
+        }
+
+        public void stop()
+        {            
+            form.cts.Cancel();
         }
 
     }

@@ -31,10 +31,11 @@ namespace lineage2ServerLauncher
             p = proc.Id;
             proc.Exited += (sae, sea) =>
             {
-                Form1.ActiveForm.Controls["button6"].Invoke(new Action(() =>
-                {
-                    Form1.ActiveForm.Controls["button6"].Enabled = true;
-                }));
+                Exited(f);
+                //Form1.ActiveForm.Controls["button6"].BeginInvoke(new Action(() =>
+                //{
+                //    Form1.ActiveForm.Controls["button6"].Enabled = true;
+                //}));
             };
             proc.OutputDataReceived += (sa, ea) =>
             {                
@@ -53,6 +54,12 @@ namespace lineage2ServerLauncher
 
             proc.BeginOutputReadLine();
             proc.BeginErrorReadLine();
+        }
+
+        public bool Exited(GameForm f)
+        {
+            f.closed = true;
+            return f.closed;
         }
 
         public void Stop()

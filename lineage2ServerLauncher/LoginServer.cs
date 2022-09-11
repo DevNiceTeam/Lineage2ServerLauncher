@@ -28,10 +28,11 @@ namespace lineage2ServerLauncher
             p = proc.Id;
             proc.Exited += (sae, sea) =>
             {
-                Form1.ActiveForm.Controls["button7"].Invoke(new Action(() =>
-                {
-                    Form1.ActiveForm.Controls["button7"].Enabled = true;
-                }));
+                Exited(f);
+                //Form1.ActiveForm.Controls["button7"].BeginInvoke(new Action(() =>
+                //{
+                //    Form1.ActiveForm.Controls["button7"].Enabled = true;
+                //}));
             };
             proc.OutputDataReceived += (sa, ea) =>
             {
@@ -55,6 +56,12 @@ namespace lineage2ServerLauncher
         public void Stop()
         {
             Process.GetProcessById(p).Kill();
+        }
+
+        public bool Exited(LoginForm f)
+        {
+            f.closed = true;
+            return f.closed;
         }
     }
 }

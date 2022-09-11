@@ -20,6 +20,7 @@ namespace lineage2ServerLauncher
         UpdInterface upd;
         public Task task;
         public CancellationTokenSource cts;
+        
 
         public Form1()
         {
@@ -41,12 +42,9 @@ namespace lineage2ServerLauncher
         {
             button1.Enabled = false;
             button5.Enabled = false;            
-            upd.checkStateUpdateUI();
-            
-                
-                
-                
-                ms.Start();// TODO мб поместить в поток???
+            upd.checkStateUpdateUI();         
+           
+            ms.Start();// TODO мб поместить в поток???
                                 
         }
 
@@ -124,7 +122,7 @@ namespace lineage2ServerLauncher
 
         private void button6_Click(object sender, EventArgs e) //GS run
         {
-            GameForm f = new GameForm();
+            GameForm f = new GameForm(this);
             f.Show();
             button6.Enabled = false;
             if (f.isRun)
@@ -138,7 +136,7 @@ namespace lineage2ServerLauncher
 
         private void button7_Click(object sender, EventArgs e) //LS run
         {
-            LoginForm f = new LoginForm();
+            LoginForm f = new LoginForm(this);
             f.Show();
             button7.Enabled = false;
             if (f.isRun)
@@ -152,7 +150,7 @@ namespace lineage2ServerLauncher
 
         private void button8_Click(object sender, EventArgs e)
         {
-            DbInstall db = new DbInstall();
+            DbInstall db = new DbInstall(ms.GetMysqlState(),upd);
             db.install();
         }
     }
