@@ -134,9 +134,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(236, 280);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(118, 16);
             this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.label2.Text = "Запустите MySql";
             // 
             // Form1
             // 

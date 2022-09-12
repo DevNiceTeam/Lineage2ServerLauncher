@@ -16,13 +16,13 @@ namespace lineage2ServerLauncher
     internal class MysqlStart 
     {
         Form1 form;
-        MysqlState ms;
+        MysqlState ms;       
         public bool dbStarted;
 
         public MysqlStart(Form1 form)
         {
             this.form = form;
-            ms = new MysqlState();
+            ms = new MysqlState();            
         }
 
         public async void Start()
@@ -151,26 +151,32 @@ namespace lineage2ServerLauncher
             }            
         }
 
-        public async void resetMysql()
+        public void resetMysql()
         {
             ms.isDisabled = true;            
             var mysqlCnf = @"mariadb\my.cnf";
             var fullPath = Path.GetFullPath(@"mariadb\data");
+            var progress = @"mariadb\PROGRESS";
+            var installed = @"mariadb\INSTALLED";
 
             try
             {
                 File.Delete(mysqlCnf);
-                Directory.Delete(fullPath, true);
-                ms.isLoading = false;
-                ms.isLoaded = false;
-                ms.isFirstRun = false;
-                ms.isReadyToLaunch = false;
-                await Task.Delay(2000);
+                File.Delete(progress);
+                File.Delete(installed);
+
+                Directory.Delete(fullPath, true);                
             }
             catch (Exception)
             {
                 Console.WriteLine("Сброс не удался");
-            }    
+            }
+            ms.isLoading = false;
+            ms.isLoaded = false;
+            ms.isFirstRun = false;
+            ms.isReadyToLaunch = false;
+            ms.isInstallation = false;
+            ms.isInstalled = false;
         }
 
         public MysqlState GetMysqlState()

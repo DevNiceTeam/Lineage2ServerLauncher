@@ -17,12 +17,12 @@ namespace lineage2ServerLauncher
         
         MySqlConnection conn = MysqlConnect.GetConnection();
         MysqlState ms;
-        UpdInterface upd;
+        UpdInterface upd;       
 
         public DbInstall(MysqlState ms, UpdInterface upd)
         {
             this.ms = ms;
-            this.upd = upd; 
+            this.upd = upd;            
         }
 
         String loginPath = @"server\db_installer\sql\login";
@@ -33,7 +33,7 @@ namespace lineage2ServerLauncher
 
         // public bool isInstalled; // В бд загружены все sql файлы сервера
         public void install()
-        { 
+        {
             try
             {
                 conn.Open();
@@ -41,17 +41,20 @@ namespace lineage2ServerLauncher
             }
             catch (Exception)
             {
-                Msg.Show("Ошибка подключения к бд","Error db connect",true);
+                Msg.Show("Ошибка подключения к бд", "Error db connect", true);
             }
 
-            upd.stop();
-            upd.checkStateUpdateUI();
-            //Task.Factory.StartNew(() =>
-            //{
-            //    installer(loginPath);
-            //    installer(gamePath);
-                
-            //},cts.Token);            
+            upd.Pause();
+            upd.Resume();
+
+            Task.Factory.StartNew(() =>
+            {                
+                installer(loginPath);
+                installer(gamePath);
+                ms.isInstallation = false;
+                ms.isInstalled = true;
+                checkInstall();
+            });            
         }
 
         public bool checkConn()
@@ -71,8 +74,7 @@ namespace lineage2ServerLauncher
         void setCommand(String s)
         {
             MySqlCommand set = new MySqlCommand(s,conn);
-            set.ExecuteNonQuery();
-            
+            set.ExecuteNonQuery();            
         }
 
         void installer(String path)
@@ -80,17 +82,17 @@ namespace lineage2ServerLauncher
             List<String> files = new List<String>();
             files.AddRange(Directory.GetFiles(path));
             foreach (var item in files)
-            {
+            {                
                 using (var reader = new StreamReader(item))
                 {
-                    Thread.Sleep(200);                    
-                    ms.isInstallation = true;
-                    string line = reader.ReadToEnd();
+                    Thread.Sleep(5);
+                    string line = reader.ReadToEnd();                    
                     setCommand(line);
-                }  
-            }
-            ms.isInstallation = false;
-            ms.isInstalled = true;
+                }
+
+                ms.isInstallation = true;
+                checkInstall();
+            }           
         }
 
         void checkInstall()
@@ -114,5 +116,22 @@ namespace lineage2ServerLauncher
                 }
             }
         }
-    }
+
+        public void checkInstall(bool onLoad)
+        {
+            var progress = @"mariadb\PROGRESS";
+            var installed = @"mariadb\INSTALLED";
+            if (onLoad)
+            {
+                if (File.Exists(progress))
+                {
+                    ms.isInstallation = true;
+                }
+                else if (File.Exists(installed))
+                {
+                    ms.isInstalled = true;
+                }
+            }
+        }
+    }    
 }

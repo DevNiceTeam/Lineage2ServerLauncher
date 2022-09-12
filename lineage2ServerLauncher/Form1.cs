@@ -18,20 +18,19 @@ namespace lineage2ServerLauncher
         LangChanger lc;
         MysqlStart ms;
         UpdInterface upd;
-        public Task task;
-        public CancellationTokenSource cts;
-        
+        DbInstall db;
 
         public Form1()
         {
             lc = new LangChanger(this);
             ms = new MysqlStart(this);
             upd = new UpdInterface(this, ms.GetMysqlState());
+            db = new DbInstall(ms.GetMysqlState(),upd);
             InitializeComponent();
         }       
 
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {       
             lc.isRuLanguage(true);
             ms.checkOtherSQL();
             button2.Enabled = false;
@@ -41,28 +40,43 @@ namespace lineage2ServerLauncher
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            button5.Enabled = false;            
-            upd.checkStateUpdateUI();         
+            button5.Enabled = false;
+            Console.WriteLine(upd.Check());
+            if (upd.Check())
+            {
+                Console.WriteLine("Поток запущен");
+                upd.Pause();
+                upd.Resume();
+            }
+            else
+            {
+                Console.WriteLine("Поток не запущен");
+                upd.checkStateUpdateUI();
+                db.checkInstall(true);
+            }
+            
            
             ms.Start();// TODO мб поместить в поток???
                                 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (ms.dbStarted)
             {
                 button2.Enabled = false;
                 Console.WriteLine("Останавливаю бд");
-                ms.stopMysql();
-                upd.checkStateUpdateUI();
-                cts.Cancel(); 
-
+                ms.stopMysql(); 
+                upd.Pause();
             }
             ms.dbStarted = false;
+            button8.Enabled = false;
             button1.Enabled = true;
             button5.Enabled = true;
+            await Task.Delay(1000);
+            label2.Text = LangChanger.isRuLang ? "Запустите MySQL" : "Run MySQL";
         }
+
         private void button5_Click(object sender, EventArgs e)
         {
             button5.Enabled = false;
@@ -71,16 +85,7 @@ namespace lineage2ServerLauncher
             button2.Enabled = false;
             ms.resetMysql();
             button5.Enabled = true;
-            button1.Enabled = true;
-            try
-            {
-                cts.Cancel();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Потоки не были запущены");
-            }
-
+            button1.Enabled = true; 
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -97,7 +102,7 @@ namespace lineage2ServerLauncher
         {
             try
             {
-                cts.Cancel();
+                upd.Exited();
             }
             catch (Exception)
             {
@@ -149,9 +154,8 @@ namespace lineage2ServerLauncher
         }
 
         private void button8_Click(object sender, EventArgs e)
-        {
-            DbInstall db = new DbInstall(ms.GetMysqlState(),upd);
+        {           
             db.install();
-        }
+        }        
     }
 }

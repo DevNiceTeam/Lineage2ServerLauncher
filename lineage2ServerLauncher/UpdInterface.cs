@@ -11,18 +11,19 @@ namespace lineage2ServerLauncher
     {
         Form1 form;
         MysqlState ms;
+        CancellationTokenSource cts = new CancellationTokenSource();
+        ManualResetEvent _manualEvent = new ManualResetEvent(true);
+        Task tsk;
 
-        public UpdInterface(Form1 form, MysqlState ms)
+        public UpdInterface(Form1 f, MysqlState ms)
         {
-            this.form = form;
+            this.form = f;
             this.ms = ms;
         }
         
         public void checkStateUpdateUI()
-        {
-            form.cts = new CancellationTokenSource();
-            
-            form.task = Task.Factory.StartNew(() =>
+        {              
+            tsk = Task.Factory.StartNew(() =>
             {
                 while (true)
                 {
@@ -56,7 +57,8 @@ namespace lineage2ServerLauncher
                     }
 
                     debug();
-                    if (form.cts.IsCancellationRequested)  //прерывание потока task
+                    _manualEvent.WaitOne();
+                    if (cts.IsCancellationRequested)  //прерывание потока task
                     {
                         return;
                     } 
@@ -68,14 +70,43 @@ namespace lineage2ServerLauncher
         {
             Console.WriteLine($@"isLoading = " + ms.isLoading +
                         " isLoaded = " + ms.isLoaded +
-                        " isDisabled = " + ms.isDisabled + " thr.State = " + form.task.Status +
+                        " isDisabled = " + ms.isDisabled + 
+                        " thr.State = " + tsk.Status +
                         " isInstallation = " + ms.isInstallation +
-                        " isInstalled = " + ms.isInstalled);
+                        " isInstalled = " + ms.isInstalled +
+                        " isResume = " + isResume + 
+                        " isPause = " + isPause);
         }
 
-        public void stop()
+        public void Exited()
         {            
-            form.cts.Cancel();
+            cts.Cancel();
+        }
+
+        bool isResume, isPause = false;
+
+        public bool Resume()
+        {
+            isPause = false;
+            isResume = true;
+            return _manualEvent.Set();
+        }
+
+        public bool Pause()
+        {
+            isResume = false;
+            isPause = true;
+            return _manualEvent.Reset();
+        }
+
+        public bool Check()
+        {
+            if (isPause)
+            {
+                return true;
+            } 
+
+            return false;
         }
 
     }
