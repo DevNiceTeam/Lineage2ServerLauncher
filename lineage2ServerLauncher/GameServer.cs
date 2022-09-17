@@ -8,10 +8,9 @@ using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
-    internal class GameServer
+    public class GameServer
     {
-        public bool isRun;
-        
+        public bool isRun;        
         int p;          
 
         public void Run(GameForm f)
@@ -31,7 +30,8 @@ namespace lineage2ServerLauncher
             p = proc.Id;
             proc.Exited += (sae, sea) =>
             {
-                Exited(f);
+                Exited(f); 
+                //TODO не выходит из потока
                 //Form1.ActiveForm.Controls["button6"].BeginInvoke(new Action(() =>
                 //{
                 //    Form1.ActiveForm.Controls["button6"].Enabled = true;
@@ -56,16 +56,16 @@ namespace lineage2ServerLauncher
             proc.BeginErrorReadLine();
         }
 
+        public Process GetGameProcess()
+        {
+            isRun = false;
+            return Process.GetProcessById(p);
+        }
+
         public bool Exited(GameForm f)
         {
             f.closed = true;
             return f.closed;
-        }
-
-        public void Stop()
-        {
-            Process.GetProcessById(p).Kill();
-            isRun = false;
         }
     }
 }

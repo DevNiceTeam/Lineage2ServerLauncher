@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
-
     public partial class Form1 : Form
     {
         LangChanger lc;
         MysqlStart ms;
         UpdInterface upd;
-        DbInstall db;
+        DbInstall db;   
+        LoginForm lf;
+        GameForm gf;
 
         public Form1()
         {
@@ -26,6 +20,8 @@ namespace lineage2ServerLauncher
             ms = new MysqlStart(this);
             upd = new UpdInterface(this, ms.GetMysqlState());
             db = new DbInstall(ms.GetMysqlState(),upd);
+            
+            
             InitializeComponent();
         }       
 
@@ -35,6 +31,8 @@ namespace lineage2ServerLauncher
             ms.checkOtherSQL();
             button2.Enabled = false;
             button8.Enabled = false;
+            button6.Enabled = false;
+            button7.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,10 +50,10 @@ namespace lineage2ServerLauncher
             {
                 Console.WriteLine("Поток не запущен");
                 upd.checkStateUpdateUI();
-                db.checkInstall(true);
+                
             }
-            
-           
+            db.checkInstall(true);
+
             ms.Start();// TODO мб поместить в поток???
                                 
         }
@@ -102,7 +100,7 @@ namespace lineage2ServerLauncher
         {
             try
             {
-                upd.Exited();
+                upd.Pause();
             }
             catch (Exception)
             {
@@ -111,26 +109,30 @@ namespace lineage2ServerLauncher
 
             if (ms.dbStarted)
             {
+                
                 var txt = Msg.Show("Бд запущена вы уверены что хотите выйти?",
                     "DB is running are you sure you want to exit?", false);
                 if (txt == DialogResult.Yes)
-                {
-                    button2.PerformClick();
+                {                    
+                    upd.Exited();
+                    button2_Click(sender, e);
                     this.Close();
                 }
+
                 if (txt == DialogResult.No)
                 {
-                    e.Cancel = true;
+                    upd.Resume();
+                    e.Cancel = true;                    
                 }
-            }
+            }          
         }
 
         private void button6_Click(object sender, EventArgs e) //GS run
         {
-            GameForm f = new GameForm(this);
-            f.Show();
+            gf = new GameForm(this);
+            gf.Show();
             button6.Enabled = false;
-            if (f.isRun)
+            if (gf.GetGameServer.isRun)
             {
                 button1.Enabled = false;
                 button2.Enabled = false;
@@ -141,10 +143,10 @@ namespace lineage2ServerLauncher
 
         private void button7_Click(object sender, EventArgs e) //LS run
         {
-            LoginForm f = new LoginForm(this);
-            f.Show();
+            lf = new LoginForm(this);
+            lf.Show();
             button7.Enabled = false;
-            if (f.isRun)
+            if (lf.GetLoginServer.isRun)
             {
                 button1.Enabled = false;
                 button2.Enabled = false;
@@ -156,6 +158,26 @@ namespace lineage2ServerLauncher
         private void button8_Click(object sender, EventArgs e)
         {           
             db.install();
-        }        
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Проверка в случае закрытия мейн формы убиваем фоновый процесс гс и лс
+            if (lf != null)
+            {
+                if (lf.GetLoginServer.GetLoginProcess() != null)
+                {
+                    lf.GetLoginServer.GetLoginProcess().Kill();
+                }
+            }
+
+            if (gf != null)
+            {
+                if (gf.GetGameServer.GetGameProcess() != null)
+                {
+                    gf.GetGameServer.GetGameProcess().Kill();
+                }
+            }
+        }
     }
 }

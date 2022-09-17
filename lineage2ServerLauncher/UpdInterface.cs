@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,10 +20,10 @@ namespace lineage2ServerLauncher
         
         public void checkStateUpdateUI()
         {              
-            tsk = Task.Factory.StartNew(() =>
-            {
+            tsk = Task.Factory.StartNew(()=>
+            {                
                 while (true)
-                {
+                {                   
                     
                     Thread.Sleep(1000);
                     
@@ -34,16 +31,17 @@ namespace lineage2ServerLauncher
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запускается..." : "Starting..."));
                     }
+
                     if (ms.isLoaded)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Запущено" : "Launched"));
                         //form.cts.Cancel();
                     }
+
                     if (ms.isDisabled)
                     {
                         form.label1.Invoke(new Action(() => form.label1.Text = LangChanger.isRuLang ? "Выключено" : "Turned off"));
-                    }
-                    
+                    }                    
 
                     if (ms.isInstallation)
                     {
@@ -58,6 +56,7 @@ namespace lineage2ServerLauncher
 
                     debug();
                     _manualEvent.WaitOne();
+
                     if (cts.IsCancellationRequested)  //прерывание потока task
                     {
                         return;
@@ -68,13 +67,13 @@ namespace lineage2ServerLauncher
 
         void debug()
         {
-            Console.WriteLine($@"isLoading = " + ms.isLoading +
+            Console.WriteLine("isLoading = " + ms.isLoading +
                         " isLoaded = " + ms.isLoaded +
-                        " isDisabled = " + ms.isDisabled + 
+                        " isDisabled = " + ms.isDisabled +
                         " thr.State = " + tsk.Status +
                         " isInstallation = " + ms.isInstallation +
                         " isInstalled = " + ms.isInstalled +
-                        " isResume = " + isResume + 
+                        " isResume = " + isResume +
                         " isPause = " + isPause);
         }
 

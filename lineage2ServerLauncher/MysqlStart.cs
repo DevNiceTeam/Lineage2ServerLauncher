@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
@@ -104,6 +97,8 @@ namespace lineage2ServerLauncher
                 ms.isLoaded = true;
                 form.button2.Enabled = true;
                 form.button8.Enabled = true;
+                form.button6.Enabled = true;
+                form.button7.Enabled = true;
             }
             catch (Exception)
             {
@@ -138,14 +133,11 @@ namespace lineage2ServerLauncher
                 {
                     if (proc.ProcessName == sql)
                     {
-                        var txt = Msg.Show("Запущена сторанняя бд отключить её??", "A third-party database is running to disable it??",false);
-                        if (txt == DialogResult.Yes)
+                        Console.WriteLine($"Кильнул {sql}") ;
+                        foreach (var process in Process.GetProcessesByName(sql))
                         {
-                            foreach (var process in Process.GetProcessesByName(sql))
-                            {
-                                process.Kill();
-                            }
-                        }                        
+                            process.Kill();
+                        }
                     }
                 }
             }            

@@ -28,10 +28,6 @@ namespace lineage2ServerLauncher
         String loginPath = @"server\db_installer\sql\login";
         String gamePath = @"server\db_installer\sql\game"; 
 
-
-
-
-        // public bool isInstalled; // В бд загружены все sql файлы сервера
         public void install()
         {
             try

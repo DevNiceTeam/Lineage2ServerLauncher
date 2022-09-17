@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
-    internal class LoginServer
+    public class LoginServer
     {        
+        public bool isRun;
         int p;  
 
         public void Run(LoginForm f)
-        {
+        {     
             Process proc = Process.Start(new ProcessStartInfo
             {
                 FileName = Path.GetFullPath(@"java\bin\javaw.exe"),
@@ -28,7 +25,8 @@ namespace lineage2ServerLauncher
             p = proc.Id;
             proc.Exited += (sae, sea) =>
             {
-                Exited(f);
+                Exited(f); 
+                //TODO не выходит из потока
                 //Form1.ActiveForm.Controls["button7"].BeginInvoke(new Action(() =>
                 //{
                 //    Form1.ActiveForm.Controls["button7"].Enabled = true;
@@ -51,11 +49,12 @@ namespace lineage2ServerLauncher
 
             proc.BeginOutputReadLine();
             proc.BeginErrorReadLine();
-        }
+        }     
 
-        public void Stop()
-        {
-            Process.GetProcessById(p).Kill();
+        public Process GetLoginProcess()
+        {                 
+            isRun = false;
+            return Process.GetProcessById(p);
         }
 
         public bool Exited(LoginForm f)
