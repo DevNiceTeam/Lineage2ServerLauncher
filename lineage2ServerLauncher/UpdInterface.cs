@@ -54,7 +54,7 @@ namespace lineage2ServerLauncher
                         //form.cts.Cancel();
                     }
 
-                    debug();
+                    //debug();
                     _manualEvent.WaitOne();
 
                     if (cts.IsCancellationRequested)  //прерывание потока task
@@ -107,7 +107,6 @@ namespace lineage2ServerLauncher
 
             return false;
         }
-
     }
 }
 

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
@@ -19,8 +18,7 @@ namespace lineage2ServerLauncher
             lc = new LangChanger(this);
             ms = new MysqlStart(this);
             upd = new UpdInterface(this, ms.GetMysqlState());
-            db = new DbInstall(ms.GetMysqlState(),upd);
-            
+            db = new DbInstall(ms.GetMysqlState(),upd);            
             
             InitializeComponent();
         }       
@@ -54,11 +52,10 @@ namespace lineage2ServerLauncher
             }
             db.checkInstall(true);
 
-            ms.Start();// TODO мб поместить в поток???
-                                
+            ms.Start();// TODO мб поместить в поток???                                
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             if (ms.dbStarted)
             {
@@ -71,7 +68,7 @@ namespace lineage2ServerLauncher
             button8.Enabled = false;
             button1.Enabled = true;
             button5.Enabled = true;
-            await Task.Delay(1000);
+            Thread.Sleep(1000);
             label2.Text = LangChanger.isRuLang ? "Запустите MySQL" : "Run MySQL";
         }
 
@@ -108,15 +105,13 @@ namespace lineage2ServerLauncher
             }
 
             if (ms.dbStarted)
-            {
-                
+            {                
                 var txt = Msg.Show("Бд запущена вы уверены что хотите выйти?",
                     "DB is running are you sure you want to exit?", false);
                 if (txt == DialogResult.Yes)
                 {                    
                     upd.Exited();
                     button2_Click(sender, e);
-                    this.Close();
                 }
 
                 if (txt == DialogResult.No)
@@ -163,21 +158,16 @@ namespace lineage2ServerLauncher
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Проверка в случае закрытия мейн формы убиваем фоновый процесс гс и лс
+
             if (lf != null)
             {
-                if (lf.GetLoginServer.GetLoginProcess() != null)
-                {
-                    lf.GetLoginServer.GetLoginProcess().Kill();
-                }
+                lf.GetLoginServer.GetLoginProcess().Kill();
             }
 
             if (gf != null)
             {
-                if (gf.GetGameServer.GetGameProcess() != null)
-                {
-                    gf.GetGameServer.GetGameProcess().Kill();
-                }
-            }
+                gf.GetGameServer.GetGameProcess().Kill();               
+            }           
         }
     }
 }

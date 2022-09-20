@@ -29,8 +29,7 @@ namespace lineage2ServerLauncher
             proc.EnableRaisingEvents = true;
             p = proc.Id;
             proc.Exited += (sae, sea) =>
-            {
-                Exited(f); 
+            {               
                 //TODO не выходит из потока
                 //Form1.ActiveForm.Controls["button6"].BeginInvoke(new Action(() =>
                 //{
@@ -52,20 +51,15 @@ namespace lineage2ServerLauncher
                 }));
             };
 
+            isRun = true;
+
             proc.BeginOutputReadLine();
             proc.BeginErrorReadLine();
         }
 
         public Process GetGameProcess()
-        {
-            isRun = false;
+        {                      
             return Process.GetProcessById(p);
-        }
-
-        public bool Exited(GameForm f)
-        {
-            f.closed = true;
-            return f.closed;
-        }
+        }      
     }
 }

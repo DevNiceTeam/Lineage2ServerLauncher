@@ -5,7 +5,6 @@ namespace lineage2ServerLauncher
 {
     public partial class GameForm : Form    
     {        
-        public bool closed = false;
         GameServer gs = new GameServer();
 
         public GameServer GetGameServer { get => gs; }
@@ -21,15 +20,19 @@ namespace lineage2ServerLauncher
         private void GameForm_Load(object sender, EventArgs e)
         {
             GetGameServer.Run(this);            
-        }
+        }        
 
-        private void GameForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (GetGameServer.Exited(this))
-            {
-                frm1.button6.Enabled = true;
-            }
             GetGameServer.GetGameProcess().Kill();
+
+            GetGameServer.isRun = false;
+
+            frm1.button6.Enabled = true;
+            frm1.button1.Enabled = true;
+            frm1.button2.Enabled = true;
+            frm1.button5.Enabled = true;
+            frm1.button8.Enabled = true;
         }
     }        
 }
