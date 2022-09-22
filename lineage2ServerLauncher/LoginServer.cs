@@ -6,7 +6,7 @@ namespace lineage2ServerLauncher
 {
     public class LoginServer
     {        
-        public bool isRun;
+        public bool isRun = false;
         int p;        
 
         public void Run(LoginForm f)
@@ -24,7 +24,7 @@ namespace lineage2ServerLauncher
             proc.EnableRaisingEvents = true;
             p = proc.Id;
             proc.Exited += (sae, sea) =>
-            {                
+            {  
                 //TODO не выходит из потока
                 //Form1.ActiveForm.Controls["button7"].BeginInvoke(new Action(() =>
                 //{
@@ -33,17 +33,23 @@ namespace lineage2ServerLauncher
             };
             proc.OutputDataReceived += (sa, ea) =>
             {
-                f.textBox1.BeginInvoke(new Action(() =>
+                if (f.IsHandleCreated)
                 {
-                    f.textBox1.Text += ea.Data + Environment.NewLine;
-                }));
+                    f.textBox1.BeginInvoke(new Action(() =>
+                    {
+                        f.textBox1.Text += ea.Data + Environment.NewLine;
+                    }));
+                }                
             };
             proc.ErrorDataReceived += (s, a) =>
             {
-                f.textBox1.BeginInvoke(new Action(() =>
+                if (f.IsHandleCreated)
                 {
-                    f.textBox1.Text += a.Data + Environment.NewLine;
-                }));
+                    f.textBox1.BeginInvoke(new Action(() =>
+                    {
+                        f.textBox1.Text += a.Data + Environment.NewLine;
+                    }));
+                }                
             };
 
             isRun = true;
@@ -52,7 +58,7 @@ namespace lineage2ServerLauncher
         }     
 
         public Process GetLoginProcess()
-        { 
+        {
             return Process.GetProcessById(p);
         }        
     }

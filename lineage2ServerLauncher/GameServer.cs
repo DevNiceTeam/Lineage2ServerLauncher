@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
     public class GameServer
     {
-        public bool isRun;        
+        public bool isRun = false;        
         int p;          
 
         public void Run(GameForm f)
@@ -37,28 +33,35 @@ namespace lineage2ServerLauncher
                 //}));
             };
             proc.OutputDataReceived += (sa, ea) =>
-            {                
-                f.textBox1.BeginInvoke(new Action(() =>
+            {
+                if (f.IsHandleCreated)
                 {
-                    f.textBox1.Text += ea.Data + Environment.NewLine;
-                }));
+                    f.textBox1.BeginInvoke(new Action(() =>
+                    {
+                        f.textBox1.Text += ea.Data + Environment.NewLine;
+                    }));
+                }
             };
             proc.ErrorDataReceived += (s, a) =>
             {
-                f.textBox1.BeginInvoke(new Action(() =>
+                if (f.IsHandleCreated)
                 {
-                    f.textBox1.Text += a.Data + Environment.NewLine;
-                }));
+                    f.textBox1.BeginInvoke(new Action(() =>
+                    {
+                        f.textBox1.Text += a.Data + Environment.NewLine;
+                    }));
+                }
             };
 
+            Console.WriteLine("1 " + isRun);
             isRun = true;
-
+            Console.WriteLine("2 " + isRun);
             proc.BeginOutputReadLine();
             proc.BeginErrorReadLine();
         }
 
         public Process GetGameProcess()
-        {                      
+        {
             return Process.GetProcessById(p);
         }      
     }

@@ -139,6 +139,7 @@ namespace lineage2ServerLauncher
         private void button7_Click(object sender, EventArgs e) //LS run
         {
             lf = new LoginForm(this);
+            Console.WriteLine(lf.WindowState);
             lf.Show();
             button7.Enabled = false;
             if (lf.GetLoginServer.isRun)
@@ -158,16 +159,23 @@ namespace lineage2ServerLauncher
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Проверка в случае закрытия мейн формы убиваем фоновый процесс гс и лс
-
             if (lf != null)
             {
-                lf.GetLoginServer.GetLoginProcess().Kill();
+                if (lf.GetLoginServer.isRun == true)
+                {
+                    lf.GetLoginServer.GetLoginProcess().Kill();
+                    lf.Dispose();
+                }
             }
 
             if (gf != null)
             {
-                gf.GetGameServer.GetGameProcess().Kill();               
-            }           
+                if (gf.GetGameServer.isRun == true)
+                {
+                    gf.GetGameServer.GetGameProcess().Kill();
+                    gf.Dispose();
+                }
+            }                     
         }
     }
 }
