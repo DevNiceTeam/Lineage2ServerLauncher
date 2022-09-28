@@ -23,8 +23,8 @@ namespace lineage2ServerLauncher
             tsk = Task.Factory.StartNew(()=>
             {                
                 while (true)
-                {                   
-                    
+                {
+                    _manualEvent.WaitOne();
                     Thread.Sleep(1000);
                     
                     if (ms.isLoading)
@@ -54,8 +54,8 @@ namespace lineage2ServerLauncher
                         //form.cts.Cancel();
                     }
 
-                    //debug();
-                    _manualEvent.WaitOne();
+                    debug();
+                    
 
                     if (cts.IsCancellationRequested)  //прерывание потока task
                     {

@@ -38,7 +38,7 @@ namespace lineage2ServerLauncher
                 {
                     f.textBox1.BeginInvoke(new Action(() =>
                     {
-                        f.textBox1.Text += ea.Data + Environment.NewLine;
+                        f.textBox1.AppendText(ea.Data + Environment.NewLine);
                     }));
                 }
             };
@@ -48,14 +48,12 @@ namespace lineage2ServerLauncher
                 {
                     f.textBox1.BeginInvoke(new Action(() =>
                     {
-                        f.textBox1.Text += a.Data + Environment.NewLine;
+                        f.textBox1.AppendText(a.Data + Environment.NewLine);                       
                     }));
                 }
             };
 
-            Console.WriteLine("1 " + isRun);
             isRun = true;
-            Console.WriteLine("2 " + isRun);
             proc.BeginOutputReadLine();
             proc.BeginErrorReadLine();
         }

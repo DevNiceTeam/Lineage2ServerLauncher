@@ -25,9 +25,9 @@ namespace lineage2ServerLauncher
         private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             GetGameServer.GetGameProcess().Kill();
-            Console.WriteLine("3 " + GetGameServer.isRun);
+
             GetGameServer.isRun = false;
-            Console.WriteLine("4 " + GetGameServer.isRun);
+
             frm1.button6.Enabled = true;
             frm1.button1.Enabled = true;
             frm1.button2.Enabled = true;

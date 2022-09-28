@@ -12,9 +12,7 @@ using System.Windows.Forms;
 namespace lineage2ServerLauncher
 {
     internal class DbInstall
-    {
-        CancellationTokenSource cts = new CancellationTokenSource();
-        
+    {        
         MySqlConnection conn = MysqlConnect.GetConnection();
         MysqlState ms;
         UpdInterface upd;       
@@ -50,8 +48,9 @@ namespace lineage2ServerLauncher
                 ms.isInstallation = false;
                 ms.isInstalled = true;
                 checkInstall();
+                Console.WriteLine("1111");
             });            
-        }
+        }        
 
         public bool checkConn()
         {
@@ -109,6 +108,7 @@ namespace lineage2ServerLauncher
                 {
                     File.Create(installed);
                     File.Delete(progress);
+                    conn.Close();
                 }
             }
         }

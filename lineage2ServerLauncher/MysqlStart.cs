@@ -96,7 +96,15 @@ namespace lineage2ServerLauncher
                 ms.isLoading = false;
                 ms.isLoaded = true;
                 form.button2.Enabled = true;
-                form.button8.Enabled = true;
+                if (!ms.isInstalled)
+                {
+                    form.button8.Enabled = true;
+                    form.label2.Text = LangChanger.isRuLang ? "Сервер DB не установлена" : "Server DB is not installed";
+                }
+                else
+                {
+                    form.button8.Enabled = false;
+                }
                 form.button6.Enabled = true;
                 form.button7.Enabled = true;
             }

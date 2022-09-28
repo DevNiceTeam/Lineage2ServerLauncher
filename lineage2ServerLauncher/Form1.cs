@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
@@ -47,15 +48,15 @@ namespace lineage2ServerLauncher
             else
             {
                 Console.WriteLine("Поток не запущен");
-                upd.checkStateUpdateUI();
-                
+                upd.checkStateUpdateUI();                
             }
             db.checkInstall(true);
+            
 
-            ms.Start();// TODO мб поместить в поток???                                
+            ms.Start();// TODO мб поместить в поток??? 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             if (ms.dbStarted)
             {
@@ -68,7 +69,7 @@ namespace lineage2ServerLauncher
             button8.Enabled = false;
             button1.Enabled = true;
             button5.Enabled = true;
-            Thread.Sleep(1000);
+            await Task.Delay(1500);
             label2.Text = LangChanger.isRuLang ? "Запустите MySQL" : "Run MySQL";
         }
 
@@ -76,11 +77,13 @@ namespace lineage2ServerLauncher
         {
             button5.Enabled = false;
             button1.Enabled = false;
+            MysqlConnect.GetConnection().Close();
             button2.PerformClick();
             button2.Enabled = false;
             ms.resetMysql();
             button5.Enabled = true;
-            button1.Enabled = true; 
+            button1.Enabled = true;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -153,6 +156,7 @@ namespace lineage2ServerLauncher
 
         private void button8_Click(object sender, EventArgs e)
         {           
+            button8.Enabled = false;
             db.install();
         }
 
