@@ -82,8 +82,7 @@ namespace lineage2ServerLauncher
             button2.Enabled = false;
             ms.resetMysql();
             button5.Enabled = true;
-            button1.Enabled = true;
-            
+            button1.Enabled = true;            
         }
 
         private void button3_Click(object sender, EventArgs e)
