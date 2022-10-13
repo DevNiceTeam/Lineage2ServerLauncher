@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace lineage2ServerLauncher
 {
@@ -46,6 +41,8 @@ namespace lineage2ServerLauncher
                     isRuLang = false;
                     msg.En();
                     change("button3", "Russian");
+                    change("label2", "Run MySQL");
+                    change("label1", "Turned off");
                     return true;
                 }
             }    

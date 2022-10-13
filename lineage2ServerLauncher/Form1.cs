@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lineage2ServerLauncher.Config;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,11 +23,30 @@ namespace lineage2ServerLauncher
             db = new DbInstall(ms.GetMysqlState(),upd);            
             
             InitializeComponent();
-        }       
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HTCLIENT = 0x1;
+        private const int HTCAPTION = 0x2;
+        protected override void WndProc(ref Message m) // Перетаскивание окна без рамки
+        {
+            switch (m.Msg)
+            {
+                case WM_NCHITTEST:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == HTCLIENT)
+                    {
+                        m.Result = (IntPtr)HTCAPTION;
+                        return;
+                    }
+                    break;
+            }
+            base.WndProc(ref m);
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {       
-            lc.isRuLanguage(true);
+            lc.isEnLanguage(true);
             ms.checkOtherSQL();
             button2.Enabled = false;
             button8.Enabled = false;
@@ -180,5 +200,20 @@ namespace lineage2ServerLauncher
                 }
             }                     
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonIPGS_Click(object sender, EventArgs e)
+        {
+            Cfg cfg = new Cfg();
+        }        
     }
 }
